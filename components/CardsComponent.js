@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NetInfo, ToastAndroid } from 'react-native';
 import Item from "./ItemComponent";
-const catArray = ['Home', 'SEO', 'SEM', 'Analytics', 'Content marketing', 'Mobile', 'Social-media-marketing', 'Google-adwords', 'Facebook', 'India jobs', 'International-jobs', 'Freelancing jobs', 'Artificial Intelligence', 'Start ups', 'Digital marketing tips', 'Guest posts', 'Snapchat', 'Instagram', 'Twitter', 'Whatsapp', 'Youtube', 'Cyber security', 'Technology tips']
+const catArray = ['Home', 'SEO', 'SEM', 'Analytics', 'Content marketing', 'Mobile', 'Social-media-marketing', 'Google-adwords', 'Facebook', 'India jobs', 'International-jobs', 'Freelancing jobs', 'Artificial Intelligence', 'Start Ups', 'Digital marketing tips', 'Guest posts', 'Snapchat', 'Instagram', 'Twitter', 'Whatsapp', 'Youtube', 'Cyber security', 'Technology tips']
 
 class Cards extends Component {
     componentDidMount() {
