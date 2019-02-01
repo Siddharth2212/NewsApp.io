@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import { View, Image, Text, StyleSheet, ScrollView, NetInfo, ToastAndroid } from 'react-native';
 import { Icon } from "react-native-elements";
-import { connect } from 'react-redux';
-import {
-    fetchDishes, fetchComments, fetchLeaders, updatedDishes,
-    fetchFavorites
-} from '../redux/ActionCreators';
-import {Cards} from "./CardsComponent";
+import About from "./AboutComponent";
+import Contact from "./ContactComponent";
+import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer} from 'react-navigation';
+
+
+const CustomDrawerContentComponent = (props) => (
+    <ScrollView>
+        <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
+            <View style={styles.drawerHeader}>
+                <View style={{flex:1}}>
+                    <Image source={require('./images/logo.png')} style={styles.drawerImage} />
+                </View>
+            </View>
+            <DrawerItems {...props} />
+        </SafeAreaView>
+    </ScrollView>
+);
+
 
 const styles = StyleSheet.create({
     container: {
@@ -32,71 +44,41 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = state => {
-    return {
-        dishes: state.dishes,
-        comments: state.comments,
-        promotions: state.promotions,
-        leaders: state.leaders
-    }
-}
+const MainNavigator = createDrawerNavigator({
+    About:
+        { screen: About,
+            navigationOptions: {
+                title: 'About Us',
+                drawerLabel: 'About Us',
+                drawerIcon: ({ tintColor, focused }) => (
+                    <Icon
+                        name='info-circle'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+    Contact:
+        { screen: Contact,
+            navigationOptions: {
+                title: 'Contact Us',
+                drawerLabel: 'Contact Us',
+                drawerIcon: ({ tintColor, focused }) => (
+                    <Icon
+                        name='address-card'
+                        type='font-awesome'
+                        size={22}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+}, {
+    initialRouteName: 'About',
+    drawerBackgroundColor: '#D1C4E9',
+    contentComponent: CustomDrawerContentComponent
+});
 
-const mapDispatchToProps = dispatch => ({
-    fetchDishes: () => dispatch(fetchDishes()),
-    fetchComments: () => dispatch(fetchComments()),
-    fetchFavorites: (email) => dispatch(fetchFavorites(email)),
-    fetchLeaders: () => dispatch(fetchLeaders()),
-    updateDishes: () => dispatch(updatedDishes()),
-})
-
-class Main extends Component {
-    componentDidMount() {
-        this.props.fetchDishes();
-        this.props.fetchComments();
-        this.props.fetchFavorites("siddharthsogani1@gmail.com");
-        this.props.fetchLeaders();
-
-        NetInfo.getConnectionInfo()
-            .then((connectionInfo) => {
-                ToastAndroid.show('Initial Network Connectivity Type: '
-                    + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType,
-                    ToastAndroid.LONG)
-            });
-
-        NetInfo.addEventListener('connectionChange', this.handleConnectivityChange);
-    }
-
-    componentWillUnmount() {
-        NetInfo.removeEventListener('connectionChange', this.handleConnectivityChange);
-    }
-
-    handleConnectivityChange = (connectionInfo) => {
-        switch (connectionInfo.type) {
-            case 'none':
-                ToastAndroid.show('You are now offline!', ToastAndroid.LONG);
-                break;
-            case 'wifi':
-                ToastAndroid.show('You are now connected to WiFi!', ToastAndroid.LONG);
-                break;
-            case 'cellular':
-                ToastAndroid.show('You are now connected to Cellular!', ToastAndroid.LONG);
-                break;
-            case 'unknown':
-                ToastAndroid.show('You now have unknown connection!', ToastAndroid.LONG);
-                break;
-            default:
-                break;
-        }
-    }
-
-
-    render() {
-        return (
-            <View style={{flex:1}}>
-                <Text>Hello</Text>
-            </View>
-        );
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default createAppContainer(MainNavigator);
