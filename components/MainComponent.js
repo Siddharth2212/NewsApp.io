@@ -3,6 +3,8 @@ import { View, Image, Text, StyleSheet, ScrollView, NetInfo, ToastAndroid } from
 import { Icon } from "react-native-elements";
 import About from "./AboutComponent";
 import Contact from "./ContactComponent";
+import Favorites from "./FavoriteComponent";
+import Dishdetail from "./DishdetailComponent";
 import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 
 
@@ -60,8 +62,39 @@ const ContactNavigator = createStackNavigator({
         })}
 });
 
+const FavoritesNavigator = createStackNavigator({
+        Favorites: { screen: Favorites,
+            navigationOptions: ({ navigation }) => ({
+                headerLeft: <Icon name="menu" size={24}
+                                  color= 'white'
+                                  onPress={ () => navigation.toggleDrawer() } />,
+                headerStyle: {
+                    backgroundColor: "#2196f3"
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: "#fff"
+                }
+            })
+        },
+        Dishdetail: { screen: Dishdetail,
+            navigationOptions: {
+                headerStyle: {
+                    backgroundColor: "#2196f3"
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: "#fff"
+                }
+            }}
+    },
+    {
+        initialRouteName: 'Favorites'
+    }
+);
+
 const AboutNavigator = createStackNavigator({
-    Contact: { screen: About,
+    About: { screen: About,
         navigationOptions: ({ navigation }) => ({
             headerStyle: {
                 backgroundColor: "#2196f3"
@@ -107,6 +140,21 @@ const MainNavigator = createDrawerNavigator({
                 )
             }
         },
+    Favorites:
+        { screen: FavoritesNavigator,
+            navigationOptions: {
+                title: 'My Favorites',
+                drawerLabel: 'My Favorites',
+                drawerIcon: ({ tintColor, focused }) => (
+                    <Icon
+                        name='heart'
+                        type='font-awesome'
+                        size={24}
+                        iconStyle={{ color: tintColor }}
+                    />
+                ),
+            }
+        }
 }, {
     initialRouteName: 'About',
     drawerBackgroundColor: '#D1C4E9',

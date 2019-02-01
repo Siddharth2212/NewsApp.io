@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Text, View, ScrollView, StyleSheet, FlatList, Modal, Alert, PanResponder, Share, Dimensions, Button as Btn  } from 'react-native';
-import { Card, Icon, Rating, Input, Button } from 'react-native-elements';
+import { Text, View, ScrollView, StyleSheet, FlatList, Modal, Alert, PanResponder, Share, Dimensions, Button } from 'react-native';
+import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import {postComment, postFavorite} from "../redux/ActionCreators";
 import * as Animatable from 'react-native-animatable';
@@ -268,12 +268,12 @@ class Dishdetail extends Component{
                         leftIcon={{ type: 'font-awesome', name: 'comment' }}
                         onChangeText={(value) => this.setState({comment: value})}
                     />
-                    <Btn
+                    <Button
                         onPress = {() =>{this.toggleModal(); this.handleComment();}}
                         color="#512DA8"
                         title="Submit"
                     />
-                    <Btn
+                    <Button
                         onPress = {() =>{this.toggleModal();}}
                         color="#d9534f"
                         title="Cancel"
