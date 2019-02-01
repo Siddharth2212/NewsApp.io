@@ -3,7 +3,7 @@ import { View, Image, Text, StyleSheet, ScrollView, NetInfo, ToastAndroid } from
 import { Icon } from "react-native-elements";
 import About from "./AboutComponent";
 import Contact from "./ContactComponent";
-import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer} from 'react-navigation';
+import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 
 
 const CustomDrawerContentComponent = (props) => (
@@ -44,9 +44,41 @@ const styles = StyleSheet.create({
     }
 });
 
+const ContactNavigator = createStackNavigator({
+    Contact: { screen: Contact,
+        navigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: "#2196f3"
+            },
+            headerTitleStyle: {
+                color: "#fff"
+            },
+            headerTintColor: "#fff",
+            headerLeft: <Icon name="menu" size={24}
+                              color= 'white'
+                              onPress={ () => navigation.toggleDrawer() } />
+        })}
+});
+
+const AboutNavigator = createStackNavigator({
+    Contact: { screen: About,
+        navigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: "#2196f3"
+            },
+            headerTitleStyle: {
+                color: "#fff"
+            },
+            headerTintColor: "#fff",
+            headerLeft: <Icon name="menu" size={24}
+                              color= 'white'
+                              onPress={ () => navigation.toggleDrawer() } />
+        })}
+});
+
 const MainNavigator = createDrawerNavigator({
     About:
-        { screen: About,
+        { screen: AboutNavigator,
             navigationOptions: {
                 title: 'About Us',
                 drawerLabel: 'About Us',
@@ -61,7 +93,7 @@ const MainNavigator = createDrawerNavigator({
             }
         },
     Contact:
-        { screen: Contact,
+        { screen: ContactNavigator,
             navigationOptions: {
                 title: 'Contact Us',
                 drawerLabel: 'Contact Us',
