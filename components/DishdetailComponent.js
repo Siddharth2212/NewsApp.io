@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Text, View, ScrollView, StyleSheet, FlatList, Modal, Alert, PanResponder, Share, Dimensions, Button } from 'react-native';
-import { Card, Icon, Rating, Input } from 'react-native-elements';
+import { Card, Icon, Rating, Input, Button as Alias } from 'react-native-elements';
 import { connect } from 'react-redux';
 import {postComment, postFavorite} from "../redux/ActionCreators";
 import * as Animatable from 'react-native-animatable';
@@ -100,10 +100,10 @@ function RenderDish(props) {
                     <View style={{ flexDirection: "row",
                         alignItems: 'center',
                         justifyContent: 'flex-start'}}>
-                        <Button
+                        <Alias
                             onPress={() => props._handlePressButtonAsync()}
                             title={`Read more at ${newsLink(dish)}`}
-                            clear
+                            type="clear"
                             titleStyle={{
                                 color: "#2196f3"
                             }}
