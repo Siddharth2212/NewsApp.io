@@ -1,8 +1,6 @@
 export class DataCall {
     // Just simulating incremental loading, don't infer anything from here
     static async get(count, category = 0) {
-        console.log('pagecount');
-
         var catStr = '';
         if(category!==0){
             catStr = '&category='+category;

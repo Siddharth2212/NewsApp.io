@@ -20,7 +20,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    postFavorite: (dishId) => dispatch(postFavorite(dishId)),
+    postFavorite: (dishId, email) => dispatch(postFavorite(dishId, email)),
     postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment))
 })
 
@@ -28,48 +28,6 @@ const mapDispatchToProps = dispatch => ({
 function RenderDish(props) {
 
     const dish = props.dish;
-
-    const recognizeDrag = ({ moveX, moveY, dx, dy }) => {
-        if ( dx < -200 )
-            return true;
-        else
-            return false;
-    }
-
-    const recognizeComment = ({ moveX, moveY, dx, dy }) => {
-        if ( dx > 200 )
-            return true;
-        else
-            return false;
-    }
-
-    const panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: (e, gestureState) => {
-            return true;
-        },
-        onPanResponderGrant: () => {
-            // this.view.rubberBand(1000).then(endState => console.log(endState.finished ? 'finished' : 'cancelled'));
-        },
-        onPanResponderEnd: (e, gestureState) => {
-            console.log("pan responder end", gestureState);
-            if (recognizeDrag(gestureState))
-                Alert.alert(
-                    'Add Favorite',
-                    'Are you sure you wish to add ' + dish.approved_title + ' to favorite?',
-                    [
-                        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                        {text: 'OK', onPress: () => {props.favorite ? console.log('Already favorite') : props.onPress()}},
-                    ],
-                    { cancelable: false }
-                );
-
-            if(recognizeComment(gestureState)){
-                props.toggleModal();
-            }
-
-            return true;
-        }
-    })
 
     handleViewRef = ref => this.view = ref;
 
@@ -216,7 +174,6 @@ class Dishdetail extends Component{
     };
 
     handleComment() {
-        console.log(JSON.stringify(this.state));
         this.toggleModal();
         let dishId = this.props.navigation.getParam('dishId', '');
         this.addComment(dishId, this.state.rating, this.state.author, this.state.comment)
@@ -227,7 +184,7 @@ class Dishdetail extends Component{
     }
 
     markFavorite(dishId) {
-        this.props.postFavorite(dishId);
+        this.props.postFavorite(dishId, "siddharthsogani1@gmail.com");
     }
 
     addComment(dishId, rating, author, comment) {
@@ -236,8 +193,6 @@ class Dishdetail extends Component{
 
     render(){
         const dish = this.props.navigation.getParam('dish', '');
-        console.log('te dish');
-        console.log(dish);
         let dishId = dish.newsid;
 
         return(

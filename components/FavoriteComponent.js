@@ -26,10 +26,11 @@ class Favorites extends Component {
         title: 'My Favorites'
     };
 
-    render() {
-        console.log('aiehg');
-        console.log(this.props.favorites);
+    componentDidMount(){
+        this.props.fetchFavorites("siddharthsogani1@gmail.com");
+    }
 
+    render() {
         const { navigate } = this.props.navigation;
 
         const renderMenuItem = ({item, index}) => {

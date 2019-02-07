@@ -84,8 +84,6 @@ export const fetchFavorites = (email) => (dispatch) => {
         .then(response => response.json())
         .then(response => response.feeds)
         .then(dishes => {
-            console.log('favorites12345');
-            console.log(dishes);
             return dispatch(addFavorites(dishes))
         })
         .catch(error => dispatch(favoritesFailed(error.message)));
@@ -113,8 +111,6 @@ export const updatedDishes = () => (dispatch) => {
         .then(response => response.json())
         .then(response => response.feeds)
         .then(dishes => {
-            console.log('helo12345');
-            console.log(dishes);
             return dispatch(addDishes(dishes.slice(5, 9)))
         })
         .catch(error => dispatch(dishesFailed(error.message)));
@@ -149,11 +145,10 @@ export const addFavorites = (favorites) => ({
     payload: favorites
 });
 
-export const fetchPromos = () => (dispatch) => {
+export const postFavorite = (dishId, email)  => (dispatch) => {
+    dispatch(favoritesLoading());
 
-    dispatch(promosLoading());
-
-    return fetch(baseUrl + 'promotions')
+    return fetch(baseUrl + 'addfavorite?newsid='+dishId+'&userid='+email)
         .then(response => {
                 if (response.ok) {
                     return response;
@@ -167,74 +162,12 @@ export const fetchPromos = () => (dispatch) => {
                 var errmess = new Error(error.message);
                 throw errmess;
             })
-        .then(response => response.json())
-        .then(promos => dispatch(addPromos(promos)))
-        .catch(error => dispatch(promosFailed(error.message)));
-};
-
-export const promosLoading = () => ({
-    type: ActionTypes.PROMOS_LOADING
-});
-
-export const promosFailed = (errmess) => ({
-    type: ActionTypes.PROMOS_FAILED,
-    payload: errmess
-});
-
-export const addPromos = (promos) => ({
-    type: ActionTypes.ADD_PROMOS,
-    payload: promos
-});
-
-export const fetchLeaders = () => (dispatch) => {
-
-    dispatch(leadersLoading());
-
-    return fetch(baseUrl + 'leaders')
         .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                var errmess = new Error(error.message);
-                throw errmess;
-            })
-        .then(response => response.json())
-        .then(leaders => dispatch(addLeaders(leaders)))
-        .catch(error => dispatch(leadersFailed(error.message)));
+            return response.json()
+        })
+        .then(leaders => dispatch(fetchFavorites(email)))
+        .catch(error => dispatch(favoritesFailed(error.message)));
 };
-
-export const leadersLoading = () => ({
-    type: ActionTypes.LEADERS_LOADING
-});
-
-export const leadersFailed = (errmess) => ({
-    type: ActionTypes.LEADERS_FAILED,
-    payload: errmess
-});
-
-export const addLeaders = (leaders) => ({
-    type: ActionTypes.ADD_LEADERS,
-    payload: leaders
-});
-
-export const postFavorite = (dishId)  => (dispatch) => {
-
-    setTimeout(() => {
-        dispatch(addFavorite(dishId));
-    }, 2000);
-};
-
-
-export const addFavorite = (dishId) => ({
-    type: ActionTypes.ADD_FAVORITE,
-    payload: dishId
-});
 
 export const deleteFavorite = (dishId) => ({
     type: ActionTypes.DELETE_FAVORITE,

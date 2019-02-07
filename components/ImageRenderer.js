@@ -41,7 +41,7 @@ export class ImageRenderer extends React.Component {
                     imageSrc={{ uri: this.props.imageUrl.approved_image}}
                     title={this.props.imageUrl.approved_title}
                     featured
-                    caption={this.props.imageUrl.approved_title}
+                    caption={this.props.imageUrl.approved_description}
                     onPress={() => navigate('Dishdetail', { dish: this.props.imageUrl })}
                 />
             </View>

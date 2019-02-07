@@ -38,8 +38,6 @@ class Cards extends Component {
         }
     }
     render() {
-        console.log('HEYY');
-        console.log(this.props);
         return (
             <Item navigation={this.props.navigation} category={catArray.indexOf(this.props.navigation.state.key)} />
         );
