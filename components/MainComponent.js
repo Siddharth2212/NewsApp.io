@@ -5,7 +5,7 @@ import About from "./AboutComponent";
 import Contact from "./ContactComponent";
 import Favorites from "./FavoriteComponent";
 import Dishdetail from "./DishdetailComponent";
-import Cards from "./CardsComponent";
+import Tabs from "./TabsComponent";
 import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer, createStackNavigator, createMaterialTopTabNavigator} from 'react-navigation';
 
 
@@ -63,88 +63,88 @@ const ContactNavigator = createStackNavigator({
         })}
 });
 
-const Tabs = createMaterialTopTabNavigator({
-        Home: { screen: Cards,
+const TabNavigator = createMaterialTopTabNavigator({
+        Home: { screen: Tabs,
             navigationOptions: {
                 title: 'Home'
             }
         },
-        SEO: { screen: Cards,
+        SEO: { screen: Tabs,
             navigationOptions: {
                 title: 'SEO'
             }
         },
-        SEM: { screen: Cards,
+        SEM: { screen: Tabs,
             navigationOptions: {
                 title: 'SEM'
             }
         },
-        Analytics: { screen: Cards,
+        Analytics: { screen: Tabs,
             navigationOptions: {
                 title: 'Analytics'
             }
         },
-        Mobile: { screen: Cards,
+        Mobile: { screen: Tabs,
             navigationOptions: {
                 title: 'Mobile'
             }
         },
-        "Content marketing": { screen: Cards,
+        "Content marketing": { screen: Tabs,
             navigationOptions: {
                 title: 'Content marketing'
             }
         },
-        "Start Ups": { screen: Cards,
+        "Start Ups": { screen: Tabs,
             navigationOptions: {
                 title: 'Start  Ups'
             }
         },
-        Facebook: { screen: Cards,
+        Facebook: { screen: Tabs,
             navigationOptions: {
                 title: 'Facebook'
             }
         },
-        Snapchat: { screen: Cards,
+        Snapchat: { screen: Tabs,
             navigationOptions: {
                 title: 'Snapchat'
             }
         },
-        Instagram: { screen: Cards,
+        Instagram: { screen: Tabs,
             navigationOptions: {
                 title: 'Instagram'
             }
         },
-        Youtube: { screen: Cards,
+        Youtube: { screen: Tabs,
             navigationOptions: {
                 title: 'Youtube'
             }
         },
-        Whatsapp: { screen: Cards,
+        Whatsapp: { screen: Tabs,
             navigationOptions: {
                 title: 'Whatsapp'
             }
         },
-        Twitter: { screen: Cards,
+        Twitter: { screen: Tabs,
             navigationOptions: {
                 title: 'Twitter'
             }
         },
-        "Artificial Intelligence": { screen: Cards,
+        "Artificial Intelligence": { screen: Tabs,
             navigationOptions: {
                 title: 'Artificial Intelligence'
             }
         },
-        "Cyber security": { screen: Cards,
+        "Cyber security": { screen: Tabs,
             navigationOptions: {
                 title: 'Cyber security'
             }
         },
-        "Digital marketing tips": { screen: Cards,
+        "Digital marketing tips": { screen: Tabs,
             navigationOptions: {
                 title: 'Digital marketing tips'
             }
         },
-        "Technology tips": { screen: Cards,
+        "Technology tips": { screen: Tabs,
             navigationOptions: {
                 title: 'Technology tips'
             }
@@ -176,7 +176,7 @@ const Tabs = createMaterialTopTabNavigator({
     });
 
 const HomeNavigator = createStackNavigator({
-        Home: { screen: Tabs,
+        Home: { screen: TabNavigator,
             navigationOptions: ({ navigation }) => ({
                 headerLeft: <Icon name="menu" size={24}
                                   color= 'white'

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Text, View, ScrollView, StyleSheet, FlatList, Modal, Alert, PanResponder, Share, Dimensions, Button } from 'react-native';
 import { Card, Icon, Rating, Input, Button as Alias } from 'react-native-elements';
 import { connect } from 'react-redux';
-import {postComment, postFavorite} from "../redux/ActionCreators";
+import {fetchComments, postComment, postFavorite} from "../redux/ActionCreators";
 import * as Animatable from 'react-native-animatable';
 import HTML from 'react-native-render-html';
 import { Constants, WebBrowser } from 'expo';
@@ -20,6 +20,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
+    fetchComments: () => dispatch(fetchComments()),
     postFavorite: (dishId, email) => dispatch(postFavorite(dishId, email)),
     postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment))
 })
@@ -188,7 +189,13 @@ class Dishdetail extends Component{
     }
 
     addComment(dishId, rating, author, comment) {
-        this.props.postComment(dishId, rating, author, comment);
+        this.props.postComment(dishId, rating, "siddharthsogani1@gmail.com", comment);
+    }
+
+    componentDidMount(){
+        const dish = this.props.navigation.getParam('dish', '');
+        let dishId = dish.newsid;
+        this.props.fetchComments(dishId);
     }
 
     render(){

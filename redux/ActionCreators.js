@@ -1,8 +1,8 @@
 import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
 
-export const fetchComments = () => (dispatch) => {
-    return fetch(baseUrl + 'comments')
+export const fetchComments = (dishId) => (dispatch) => {
+    return fetch(baseUrl + 'comments?newsid='+dishId)
         .then(response => {
                 if (response.ok) {
                     return response;
@@ -174,17 +174,42 @@ export const deleteFavorite = (dishId) => ({
     payload: dishId
 });
 
-export const postComment = (dishId, rating, author, comment)  => (dispatch) => {
+export const postComment = (dishId, rating, email, comment)  => (dispatch) => {
     let commentPayload = {
         dishId: dishId,
         rating: rating,
         comment: comment,
-        author: author,
+        author: email,
         date: (new Date).toISOString()};
-    setTimeout(() => {
-        dispatch(addComment(commentPayload));
-    }, 2000);
+    dispatch(commentsLoading());
+
+    return fetch(baseUrl + 'addcomment?newsid='+dishId+'&comment='+JSON.stringify(commentPayload))
+        .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => {
+                var errmess = new Error(error.message);
+                throw errmess;
+            })
+        .then(response => {
+            return response.json()
+        })
+        .then(response => {
+            console.log(response);
+            console.log('HEYYYY');
+        })
+        .catch(error => dispatch(commentsFailed(error.message)));
 };
+
+export const commentsLoading = () => ({
+    type: ActionTypes.COMMENTS_LOADING
+});
 
 export const addComment = (commentPayload) => ({
     type: ActionTypes.ADD_COMMENT,

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { NetInfo, ToastAndroid } from 'react-native';
-import Item from "./ItemComponent";
+import Tab from "./TabComponent";
 const catArray = ['Home', 'SEO', 'SEM', 'Analytics', 'Content marketing', 'Mobile', 'Social-media-marketing', 'Google-adwords', 'Facebook', 'India jobs', 'International-jobs', 'Freelancing jobs', 'Artificial Intelligence', 'Start Ups', 'Digital marketing tips', 'Guest posts', 'Snapchat', 'Instagram', 'Twitter', 'Whatsapp', 'Youtube', 'Cyber security', 'Technology tips']
 
-class Cards extends Component {
+class Tabs extends Component {
     componentDidMount() {
         NetInfo.getConnectionInfo()
             .then((connectionInfo) => {
@@ -38,10 +38,10 @@ class Cards extends Component {
         }
     }
     render() {
-        return (
-            <Item navigation={this.props.navigation} category={catArray.indexOf(this.props.navigation.state.key)} />
-        );
+        return(
+            <Tab navigation={this.props.navigation} category={catArray.indexOf(this.props.navigation.state.key)} />
+        )
     };
 }
 
-export default  Cards ;
+export default  Tabs ;
