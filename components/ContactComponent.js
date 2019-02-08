@@ -26,7 +26,7 @@ class Contact extends Component {
                         title="Contact Information">
                         <Text
                             style={{margin: 10}}>
-                            {`AMP Digital, Unit Number 221, \nJMD Megapolis, \nSector 48, \nSohna Road, Gurugram, \nHaryana 122018`}
+                            {`AMP Digital, Unit Number 221, \nJMD Megapolis,  \nSector 48, \nSohna Road, Gurugram, \nHaryana 122018`}
                         </Text>
                         <Button
                             title="Send Email"

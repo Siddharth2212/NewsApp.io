@@ -171,7 +171,7 @@ class Dishdetail extends Component{
     };
 
     static navigationOptions = {
-        title : 'News Details'
+        title : 'News Details',
     };
 
     handleComment() {

@@ -6,6 +6,7 @@ import Contact from "./ContactComponent";
 import Favorites from "./FavoriteComponent";
 import Dishdetail from "./DishdetailComponent";
 import Tabs from "./TabsComponent";
+import News from "./NewsComponent";
 import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer, createStackNavigator, createMaterialTopTabNavigator} from 'react-navigation';
 
 
@@ -237,6 +238,35 @@ const FavoritesNavigator = createStackNavigator({
     }
 );
 
+const NewsNavigator = createStackNavigator({
+        Home: { screen: News,
+            headerMode: 'none',
+            navigationOptions: ({ navigation }) => ({
+                headerLeft: <Icon name="home" size={24}
+                                  color= 'white'
+                                  onPress={ () => navigation.toggleDrawer() } />,
+                headerStyle: {
+                    backgroundColor: "#2196f3"
+                },
+                headerVisible: false,
+            })
+        },
+        Dishdetail: { screen: Dishdetail,
+            navigationOptions: {
+                headerStyle: {
+                    backgroundColor: "#2196f3"
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: "#fff"
+                }
+            }}
+    },
+    {
+        initialRouteName: 'Home'
+    }
+);
+
 const AboutNavigator = createStackNavigator({
     About: { screen: About,
         navigationOptions: ({ navigation }) => ({
@@ -255,7 +285,7 @@ const AboutNavigator = createStackNavigator({
 
 const MainNavigator = createDrawerNavigator({
     Home:
-        { screen: HomeNavigator,
+        { screen: NewsNavigator,
             navigationOptions: {
                 title: 'Home',
                 drawerLabel: 'Home',
