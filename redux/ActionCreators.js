@@ -174,6 +174,11 @@ export const deleteFavorite = (dishId) => ({
     payload: dishId
 });
 
+export const setUri = (uri) => ({
+    type: ActionTypes.SET_URI,
+    payload: uri
+});
+
 export const postComment = (dishId, rating, email, comment)  => (dispatch) => {
     let commentPayload = {
         dishId: dishId,
@@ -200,10 +205,7 @@ export const postComment = (dishId, rating, email, comment)  => (dispatch) => {
         .then(response => {
             return response.json()
         })
-        .then(response => {
-            console.log(response);
-            console.log('HEYYYY');
-        })
+        .then(leaders => dispatch())
         .catch(error => dispatch(commentsFailed(error.message)));
 };
 

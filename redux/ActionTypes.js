@@ -11,4 +11,5 @@ export const ADD_LEADERS = 'ADD_LEADERS';
 export const LEADERS_FAILED = 'LEADERS_FAILED';
 export const FETCH_FAVORITES = 'FETCH_FAVORITES';
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const SET_URI = 'SET_URI';
 export const DELETE_FAVORITE = 'DELETE_FAVORITE';

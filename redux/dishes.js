@@ -2,10 +2,13 @@ import * as ActionTypes from './ActionTypes';
 
 export const dishes = (state = { isLoading: true,
     errMess: null,
-    dishes:[], page:1}, action) => {
+    dishes:[], page:1, uri: 'https://www.newsapp.io'}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_DISHES:
             return {...state, isLoading: false, errMess: null, dishes: action.payload, page: state.page+1};
+
+        case ActionTypes.SET_URI:
+            return {...state, isLoading: false, errMess: null, uri: action.payload};
 
         case ActionTypes.DISHES_LOADING:
             return {...state, isLoading: true, errMess: null, dishes: []}

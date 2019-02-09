@@ -6,7 +6,7 @@ import Contact from "./ContactComponent";
 import Favorites from "./FavoriteComponent";
 import Dishdetail from "./DishdetailComponent";
 import Tabs from "./TabsComponent";
-import News from "./NewsComponent";
+import News from "./HomeComponent";
 import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer, createStackNavigator, createMaterialTopTabNavigator} from 'react-navigation';
 
 
@@ -263,7 +263,8 @@ const NewsNavigator = createStackNavigator({
             }}
     },
     {
-        initialRouteName: 'Home'
+        initialRouteName: 'Home',
+        headerMode: 'none',
     }
 );
 

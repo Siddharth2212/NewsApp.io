@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Text, View, ScrollView, StyleSheet, FlatList, Modal, Alert, PanResponder, Share, Dimensions, Button } from 'react-native';
-import { Card, Icon, Rating, Input, Button as Alias } from 'react-native-elements';
+import { View, ScrollView, StyleSheet, FlatList, Modal, ActivityIndicator, Alert, PanResponder, Share, Dimensions, Button } from 'react-native';
+import { Card, Icon, Rating, Input, Button as Alias, Image, Text } from 'react-native-elements';
 import { connect } from 'react-redux';
 import {fetchComments, postComment, postFavorite} from "../redux/ActionCreators";
 import * as Animatable from 'react-native-animatable';
@@ -8,6 +8,8 @@ import HTML from 'react-native-render-html';
 import { Constants, WebBrowser } from 'expo';
 import {EXTRACTHOSTNAME} from "../utils/extracthostname";
 import {GETHOSTNAME} from "../utils/gethostname";
+import {TIMESINCE} from "../utils/timesince";
+var {width, height} = Dimensions.get('window');// You can import from local files
 
 let catArray = ['home', 'search-engine-optimization', 'search-engine-marketing', 'analytics', 'content-marketing', 'mobile', 'social-media-marketing', 'google-adwords', 'facebook', 'india-jobs', 'international-jobs', 'freelancing-jobs', 'artificial-intelligence', 'entrepreneurship', 'digital-marketing-tips', 'post', 'snapchat', 'instagram', 'twitter', 'whatsapp', 'youtube', 'cyber-security', 'technology-tips']
 
@@ -52,10 +54,26 @@ function RenderDish(props) {
         return(
             <ScrollView>
                 {/*<Animatable.View ref={this.handleViewRef} animation="fadeInDown" duration={2000} delay={1000}  {...panResponder.panHandlers}>*/}
-                <Card
-                    featuredTitle={dish.approved_title}
-                    image={{uri: dish.approved_image}}>
-                    <HTML html={dish.longapproved_description} imagesMaxWidth={Dimensions.get('window').width} />
+                    <Image
+                        source={{ uri: dish.approved_image }}
+                        style={{ height: 200 }}
+                        PlaceholderContent={<ActivityIndicator />}
+                    />
+                    <View style={{ flexDirection: "row",
+                        alignItems: 'center',
+                        margin: 5,
+                        justifyContent: 'flex-start'}}>
+                        <Text h3>{dish.approved_title}</Text>
+                    </View>
+                    <View style={{ flexDirection: "row",
+                        alignItems: 'center',
+                        margin: 5,
+                        justifyContent: 'flex-start'}}>
+                        <Text style={{color: "grey"}}>{`${TIMESINCE(dish.date)} ago by ${newsLink(dish)}`}</Text>
+                    </View>
+                    <ScrollView style={{margin: 5}}>
+                        <HTML html={dish.longapproved_description} imagesMaxWidth={Dimensions.get('window').width} />
+                    </ScrollView>
                     <View style={{ flexDirection: "row",
                         alignItems: 'center',
                         justifyContent: 'flex-start'}}>
@@ -95,7 +113,6 @@ function RenderDish(props) {
                             style={styles.cardItem}
                             onPress={() => shareDish(dish.approved_title, dish.approved_description, `https://www.newsapp.io/${catArray[parseInt(dish.category)]}/${dish.newsid}`)} />
                     </View>
-                </Card>
                 {/*</Animatable.View>*/}
             </ScrollView>
         );
@@ -113,15 +130,15 @@ function RenderComments(props) {
 
         return (
             <View key={index} style={{margin: 10}}>
-                <Text style={{fontSize: 14}}>{item.comment}</Text>
+                <Text style={{fontSize: 14}}>{dish.comment}</Text>
                 <Rating
                     showRating={false}
-                    startingValue={item.rating}
+                    startingValue={dish.rating}
                     imageSize={20}
                     style={{ flexDirection: 'row', display: 'flex', flex: 1, justifyContent: 'flex-start', paddingVertical: 10 }}
                 />
-                {/*<Text style={{fontSize: 12}}>{item.rating} Stars</Text>*/}
-                <Text style={{fontSize: 12}}>{'-- ' + item.author + ', ' + item.date} </Text>
+                {/*<Text style={{fontSize: 12}}>{dish.rating} Stars</Text>*/}
+                <Text style={{fontSize: 12}}>{'-- ' + dish.author + ', ' + dish.date} </Text>
             </View>
         );
     };
@@ -133,7 +150,7 @@ function RenderComments(props) {
                     <FlatList
                         data={comments}
                         renderItem={renderCommentItem}
-                        keyExtractor={item => item.id.toString()}
+                        keyExtractor={item => dish.id.toString()}
                     />
                 </Card>
             </Animatable.View>
