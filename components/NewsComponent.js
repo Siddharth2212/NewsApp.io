@@ -228,12 +228,15 @@ class Tab extends Component {
     render() {
         if (!this.state.data || this.state.data.length==0) {
             return(
-                <Loading />
+                <View style={{width: this.props.width}}>
+                    <Loading />
+                </View>
             );
         }
         else{
             return (
                 <FlatList
+                    showsVerticalScrollIndicator={false}
                     onViewableItemsChanged={this.onViewableItemsChanged }
                     onLayout = {this.onLayout}
                     getItemLayout={(data, index) => (

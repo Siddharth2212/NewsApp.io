@@ -28,6 +28,13 @@ class Tab extends Component {
             search: '',
             selectedIndex: 0
         };
+        this.loaded = false;
+    }
+
+    componentDidMount(){
+        setTimeout(function () {
+            this.loaded = true
+        }, 1000)
     }
 
     updateSearch = search => {
@@ -39,11 +46,11 @@ class Tab extends Component {
         const { search } = this.state;
 
         return(
-            <View style={{flex:1, backgroundColor: '#fff'}}>
+            <View style={{flex:1, width: this.props.width, backgroundColor: '#fff'}}>
                 <Header
                     statusBarProps={{ barStyle: 'light-content' }}
                     barStyle="light-content" // or directly
-                    rightComponent={{ icon: 'chevron-right', style: { color: '#fff' }, onPress: () =>  this.props.swipe(1)}}
+                    rightComponent={{ icon: 'chevron-right', style: { color: '#fff' }, onPress: () =>  this.props.flatListRef.scrollToIndex({animated: true, index: 0})}}
                     centerComponent={{ text: 'NewsApp.io', style: { color: '#fff' } }}
                     containerStyle={{
                         backgroundColor: '#2196f3',

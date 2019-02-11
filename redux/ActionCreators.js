@@ -179,6 +179,11 @@ export const setUri = (uri) => ({
     payload: uri
 });
 
+export const setIndex = (index) => ({
+    type: ActionTypes.SET_INDEX,
+    payload: index
+});
+
 export const postComment = (dishId, rating, email, comment)  => (dispatch) => {
     let commentPayload = {
         dishId: dishId,
