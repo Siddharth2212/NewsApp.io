@@ -77,62 +77,6 @@ class MyListItem extends React.PureComponent {
                         }}
                     />
                 </View>
-               {/* <Button
-                    containerViewStyle={{marginLeft:30,marginRight:30,width:"100%"}}
-                    buttonStyle={{width:"100%"}}
-                    textStyle={{}}
-                    onPress={() => this.props.navigate('Dishdetail', { dish: item })}
-                    title="Read More"
-                    clear
-                />*/}
-                {/*<View style={{ flexDirection: "row",
-                    alignItems: 'center',
-                    justifyContent: 'flex-start'}}>
-                    <Alias
-                        onPress={() => this.props.navigate('Dishdetail', { dish: item })}
-                        title={`Read more`}
-                        type="clear"
-                        titleStyle={{
-                            color: "#2196f3",
-                            fontSize: 16
-                        }}
-                    />
-                </View>*/}
-                {/*<Card
-                    containerStyle={{height: this.props.height-10}}
-                    title={item.approved_title}
-                    image={{ uri: item.approved_image }}>
-                    <View style={{ flexDirection: "row",
-                        alignItems: 'center',
-                        justifyContent: 'flex-start'}}>
-                        <Alias
-                            onPress={() => (console.log('hello'))}
-                            title={`${TIMESINCE(item.date)} ago by ${newsLink(item)}`}
-                            type="clear"
-                            titleStyle={{
-                                color: "#2196f3"
-                            }}
-                        />
-                    </View>
-                    <Text
-                        style={{margin: 10}}>
-                        {item.approved_description}
-                    </Text>
-                    <Button
-                        title="Read more"
-                        buttonStyle={{backgroundColor: "#2196f3"}}
-                        icon={<Icon name='envelope-o' type='font-awesome' color='white' />}
-                        onPress={() => this.props.navigate('Dishdetail', { dish: item })}
-                    />
-                    <View
-                        style={{
-                            paddingVertical: 20,
-                            borderTopWidth: 1,
-                            borderColor: "#CED0CE"
-                        }}
-                    ><ActivityIndicator animating size="large" />
-                    </View>
-                </Card>*/}
             </View>
         )
     }

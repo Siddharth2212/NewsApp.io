@@ -52,7 +52,6 @@ function RenderDish(props) {
     if (dish != null) {
         return(
             <ScrollView>
-                {/*<Animatable.View ref={this.handleViewRef} animation="fadeInDown" duration={2000} delay={1000}  {...panResponder.panHandlers}>*/}
                     <Image
                         source={{ uri: dish.approved_image }}
                         style={{ height: 200 }}
@@ -112,7 +111,6 @@ function RenderDish(props) {
                             style={styles.cardItem}
                             onPress={() => shareDish(dish.approved_title, dish.approved_description, `https://www.newsapp.io/${catArray[parseInt(dish.category)]}/${dish.newsid}`)} />
                     </View>
-                {/*</Animatable.View>*/}
             </ScrollView>
         );
     }
