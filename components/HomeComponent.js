@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Swiper from 'react-native-swiper'
-import randomcolor from 'randomcolor'
 import News from "./NewsComponent";
 import Browser from "./WebviewComponent";
+import Leftbar from "./LeftbarComponent";
+import { Constants, WebBrowser } from 'expo';
 
 import {
     View,
@@ -24,14 +25,15 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            label: 'left'
+            label: 'left',
+            result: null
         };
     }
 
     viewStyle() {
         return {
             flex: 1,
-            backgroundColor: randomcolor(),
+            // backgroundColor: randomcolor(),
             justifyContent: 'center',
             alignItems: 'center',
         }
@@ -46,7 +48,13 @@ class Home extends Component {
         }
         else if(index==2){
             console.log('HERE'+index);
+            this._handlePressButtonAsync();
         }
+    };
+
+    _handlePressButtonAsync = async () => {
+        let result = await WebBrowser.openBrowserAsync('https://expo.io');
+        this.setState({ result });
     };
 
     jumpToSlide (value) {
@@ -65,13 +73,11 @@ class Home extends Component {
                 showsPagination={false}
                 ref="swiper"
                 index={1}>
-                <View style={this.viewStyle()}>
-                    <TitleText label={this.state.label} />
-                </View>
+                <Leftbar swipe={(value) => this.jumpToSlide(value)} navigation={this.props.navigation} />
                 <View style={this.viewStyle()}>
                     <News navigation={this.props.navigation} />
                 </View>
-                <Browser swipe={(value) => this.jumpToSlide(value)} navigation={this.props.navigation} />
+                {/*<Browser swipe={(value) => this.jumpToSlide(value)} navigation={this.props.navigation} />*/}
             </Swiper>
 
         )

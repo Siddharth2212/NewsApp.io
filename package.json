@@ -9,13 +9,11 @@
   "dependencies": {
     "@okgrow/react-native-copilot": "^2.4.1",
     "expo": "^32.0.0",
-    "randomcolor": "^0.5.3",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-animatable": "^1.3.1",
     "react-native-elements": "^1.0.0",
     "react-native-render-html": "^3.10.0",
-    "react-native-swipe-navigation": "^1.0.0-beta",
     "react-native-swipeout": "^2.3.6",
     "react-native-swiper": "^1.5.14",
     "react-navigation": "3.0.9",

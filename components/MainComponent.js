@@ -290,6 +290,7 @@ const MainNavigator = createDrawerNavigator({
             navigationOptions: {
                 title: 'Home',
                 drawerLabel: 'Home',
+                drawerLockMode: "locked-closed",
                 drawerIcon: ({ tintColor, focused }) => (
                     <Icon
                         name='home'

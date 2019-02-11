@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, ScrollView, View, FlatList } from 'react-native';
-import { Card, ListItem } from 'react-native-elements';
+import { Card, ListItem, SearchBar } from 'react-native-elements';
 import {LEADERS} from "../shared/leaders";
 import { baseUrl } from '../shared/baseUrl';
 import { Loading } from './LoadingComponent';
@@ -20,38 +20,36 @@ function History(props) {
 
 class About extends Component {
 
+    updateSearch = search => {
+        this.setState({ search });
+    };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            search: ''
+        };
+    }
+
     static navigationOptions = {
         title: 'About Us'
     };
 
     render() {
-        const renderMenuItem = ({item, index}) => {
-
-            return (
-                <ListItem
-                    key={index}
-                    title={item.name}
-                    subtitle={item.description}
-                    hideChevron={true}
-                    leftAvatar={{ source: require('./images/amitabh.jpeg') }}
-                />
-            );
-        };
+        const { search } = this.state;
 
         return(
-            <ScrollView>
-                <Animatable.View animation="fadeInDown" duration={2000} delay={1000}>
-                    <History />
-                    <Card
-                        title='Corporate Leadership'>
-                        <FlatList
-                            data={LEADERS}
-                            renderItem={renderMenuItem}
-                            keyExtractor={item => item.id.toString()}
-                        />
-                    </Card>
-                </Animatable.View>
-            </ScrollView>
+            <View>
+                <SearchBar
+                    lightTheme
+                    containerStyle={{marginTop:20, backgroundColor: "#2196f3", borderColor:"#2196f3"}}
+                    value={search}
+                    onChangeText={this.updateSearch}
+                    placeholder="Type to search..."
+                    icon = {{type: 'font-awesome', color: '#86939e', name: 'search' }}
+                    clearIcon = {{type: 'font-awesome', color: '#86939e', name: 'search' }}
+                    round={true}/>
+            </View>
         );
     }
 }

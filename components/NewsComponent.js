@@ -9,6 +9,8 @@ import {GETHOSTNAME} from "../utils/gethostname";
 import {TIMESINCE} from "../utils/timesince";
 import {connect} from "react-redux";
 import {setUri} from "../redux/ActionCreators";
+import { Constants, WebBrowser } from 'expo';
+
 
 const mapStateToProps = state => {
     return {
@@ -22,6 +24,15 @@ const mapDispatchToProps = dispatch => ({
 
 // or any pure javascript modules available in npm
 class MyListItem extends React.PureComponent {
+    state = {
+        result: null,
+    };
+
+    _handlePressButtonAsync = async (link) => {
+        let result = await WebBrowser.openBrowserAsync(link);
+        this.setState({ result });
+    };
+
     render() {
         let newsLink = (newsfeed) => {
             var itemlink = ((typeof newsfeed.added!='undefined' && newsfeed.added == 'true') ? EXTRACTHOSTNAME(newsfeed.link) : GETHOSTNAME(newsfeed.link.split('url=')[1], newsfeed));
@@ -39,19 +50,32 @@ class MyListItem extends React.PureComponent {
                     alignItems: 'center',
                     margin: 5,
                     justifyContent: 'flex-start'}}>
-                    <Text h2>{item.approved_title}</Text>
+                    <Text h3>{item.approved_title}</Text>
                 </View>
                 <View style={{ flexDirection: "row",
                     alignItems: 'center',
                     margin: 5,
                     justifyContent: 'flex-start'}}>
-                    <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago by ${newsLink(item)}`}</Text>
+                    <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago`}</Text>
                 </View>
                 <View style={{ flexDirection: "row",
                     alignItems: 'center',
                     margin: 5,
                     justifyContent: 'flex-start'}}>
                     <Text>{item.approved_description}</Text>
+                </View>
+                <View style={{ flexDirection: "row",
+                    alignItems: 'center',
+                    justifyContent: 'flex-start'}}>
+                    <Alias
+                        onPress={() => this._handlePressButtonAsync(item.link)}
+                        title={`Read more at ${newsLink(item)}`}
+                        type="clear"
+                        titleStyle={{
+                            color: "#2196f3",
+                            fontSize: 12
+                        }}
+                    />
                 </View>
                {/* <Button
                     containerViewStyle={{marginLeft:30,marginRight:30,width:"100%"}}
@@ -61,7 +85,7 @@ class MyListItem extends React.PureComponent {
                     title="Read More"
                     clear
                 />*/}
-                <View style={{ flexDirection: "row",
+                {/*<View style={{ flexDirection: "row",
                     alignItems: 'center',
                     justifyContent: 'flex-start'}}>
                     <Alias
@@ -73,7 +97,7 @@ class MyListItem extends React.PureComponent {
                             fontSize: 16
                         }}
                     />
-                </View>
+                </View>*/}
                 {/*<Card
                     containerStyle={{height: this.props.height-10}}
                     title={item.approved_title}

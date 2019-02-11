@@ -6,6 +6,7 @@ import {EXTRACTHOSTNAME} from "../utils/extracthostname";
 import {GETHOSTNAME} from "../utils/gethostname";
 import {connect} from "react-redux";
 import {setUri} from "../redux/ActionCreators";
+import { Constants, WebBrowser } from 'expo';
 
 const styles = StyleSheet.create(
     {
@@ -48,7 +49,8 @@ class Tab extends Component {
             data: [],
             page: 1,
             count: 1,
-            inProgressNetworkReq: false
+            inProgressNetworkReq: false,
+            result: null
         };
     }
 
