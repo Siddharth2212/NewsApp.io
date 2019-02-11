@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dbc008b-947a-40b3-8053-da6ed4801256" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/components/DishdetailComponent.js" afterPath="$PROJECT_DIR$/components/DishdetailComponent.js" />
       <change beforePath="$PROJECT_DIR$/components/NewsComponent.js" afterPath="$PROJECT_DIR$/components/NewsComponent.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -17,14 +16,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NewsComponent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NewsComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
-              <caret line="78" column="23" lean-forward="false" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
+            <state relative-caret-position="197">
+              <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#204#249#0" expanded="true" />
+                <element signature="e#221#266#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DishdetailComponent.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DishdetailComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/DishdetailComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="266" column="16" lean-forward="true" selection-start-line="266" selection-start-column="16" selection-end-line="266" selection-end-column="16" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <marker date="1549897775020" expanded="false" signature="3079:3088" ph="..." />
@@ -137,10 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Toucha</find>
-      <find>height</find>
-      <find>WebBrowser</find>
-      <find>_handle</find>
       <find>clear</find>
       <find>Alias</find>
       <find>swipe ef</find>
@@ -166,7 +161,11 @@
       <find>Event</find>
       <find>setUri</find>
       <find>random</find>
+      <find>Share</find>
       <find>Loading</find>
+      <find>catArray</find>
+      <find>share</find>
+      <find>heart</find>
     </findStrings>
     <replaceStrings>
       <replace>Tabs</replace>
@@ -211,8 +210,8 @@
         <option value="$PROJECT_DIR$/components/HomeComponent.js" />
         <option value="$PROJECT_DIR$/components/LeftbarComponent.js" />
         <option value="$PROJECT_DIR$/components/FavoriteComponent.js" />
-        <option value="$PROJECT_DIR$/components/NewsComponent.js" />
         <option value="$PROJECT_DIR$/components/DishdetailComponent.js" />
+        <option value="$PROJECT_DIR$/components/NewsComponent.js" />
       </list>
     </option>
   </component>
@@ -324,7 +323,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73539000" />
+    <option name="totallyTimeSpent" value="74009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -633,17 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="78" column="23" lean-forward="false" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#204#249#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/MainComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1262">
@@ -674,13 +662,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/DishdetailComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="266" column="16" lean-forward="true" selection-start-line="266" selection-start-column="16" selection-end-line="266" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <marker date="1549897775020" expanded="false" signature="3079:3088" ph="..." />
             <marker date="1549897775020" expanded="true" signature="3092:3244" ph="..." />
             <marker date="1549897775020" expanded="true" signature="3435:3474" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#221#266#0" expanded="true" />
           </folding>
         </state>
       </provider>
