@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import {Button, View, Dimensions, FlatList, ActivityIndicator} from 'react-native';
-var {width, height} = Dimensions.get('window');// You can import from local files
+import { View, Dimensions, FlatList, ActivityIndicator } from 'react-native';
+var { width, height } = Dimensions.get('window');// You can import from local files
 import { Loading } from './LoadingComponent';
-import { Card, Icon, Button as Alias, Image, Text} from 'react-native-elements';
-import {DataCall} from "../utils/DataCall";
-import {EXTRACTHOSTNAME} from "../utils/extracthostname";
-import {GETHOSTNAME} from "../utils/gethostname";
-import {TIMESINCE} from "../utils/timesince";
-import {connect} from "react-redux";
-import {setUri} from "../redux/ActionCreators";
-import { Constants, WebBrowser } from 'expo';
+import { Button as Alias, Image, Text} from 'react-native-elements';
+import { DataCall } from "../utils/DataCall";
+import { EXTRACTHOSTNAME } from "../utils/extracthostname";
+import { GETHOSTNAME } from "../utils/gethostname";
+import { TIMESINCE } from "../utils/timesince";
+import { connect } from "react-redux";
+import { setUri } from "../redux/ActionCreators";
+import { WebBrowser } from 'expo';
 
 
 const mapStateToProps = state => {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {Button, View, Dimensions, FlatList, ActivityIndicator, StyleSheet, BackHandler} from 'react-native';
-var {width, height} = Dimensions.get('window');// You can import from local files
-import {connect} from "react-redux";
-import {setUri} from "../redux/ActionCreators";
+import { View, Dimensions, FlatList, StyleSheet, BackHandler } from 'react-native';
+var { width, height } = Dimensions.get('window');// You can import from local files
+import { connect } from "react-redux";
+import { setUri } from "../redux/ActionCreators";
 import Leftbar from "./LeftbarComponent";
 import News from "./NewsComponent";
 

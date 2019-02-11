@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Dimensions} from 'react-native';
-var {width, height} = Dimensions.get('window');// You can import from local files
-import {Header, SearchBar} from 'react-native-elements';
-import {connect} from "react-redux";
-import {setUri} from "../redux/ActionCreators";
+var { width, height } = Dimensions.get('window');// You can import from local files
+import { Header, SearchBar } from 'react-native-elements';
+import { connect } from "react-redux";
+import { setUri } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {

@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import { View, ScrollView, StyleSheet, FlatList, Modal, ActivityIndicator, Alert, PanResponder, Share, Dimensions, Button } from 'react-native';
+import { View, ScrollView, StyleSheet, FlatList, Modal, ActivityIndicator, Share, Dimensions, Button } from 'react-native';
 import { Card, Icon, Rating, Input, Button as Alias, Image, Text } from 'react-native-elements';
 import { connect } from 'react-redux';
-import {fetchComments, postComment, postFavorite} from "../redux/ActionCreators";
+import { fetchComments, postComment, postFavorite } from "../redux/ActionCreators";
 import * as Animatable from 'react-native-animatable';
 import HTML from 'react-native-render-html';
-import { Constants, WebBrowser } from 'expo';
+import { WebBrowser } from 'expo';
 import {EXTRACTHOSTNAME} from "../utils/extracthostname";
 import {GETHOSTNAME} from "../utils/gethostname";
 import {TIMESINCE} from "../utils/timesince";
-var {width, height} = Dimensions.get('window');// You can import from local files
 
 let catArray = ['home', 'search-engine-optimization', 'search-engine-marketing', 'analytics', 'content-marketing', 'mobile', 'social-media-marketing', 'google-adwords', 'facebook', 'india-jobs', 'international-jobs', 'freelancing-jobs', 'artificial-intelligence', 'entrepreneurship', 'digital-marketing-tips', 'post', 'snapchat', 'instagram', 'twitter', 'whatsapp', 'youtube', 'cyber-security', 'technology-tips']
 
