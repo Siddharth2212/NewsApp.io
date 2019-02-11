@@ -54,7 +54,7 @@ class MyListItem extends React.PureComponent {
             <View style={{ width: this.props.width, height: this.props.height}}  key={item.newsid}>
                 <Image
                     source={{ uri: item.approved_image }}
-                    style={{ height: 200 }}
+                    style={{ height: 180 }}
                     PlaceholderContent={<ActivityIndicator />}
                 />
                 <View style={{ flexDirection: "row",
