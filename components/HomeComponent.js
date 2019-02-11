@@ -3,8 +3,8 @@ import { View, Dimensions, FlatList, StyleSheet, BackHandler } from 'react-nativ
 var { width, height } = Dimensions.get('window');// You can import from local files
 import { connect } from "react-redux";
 import { setUri } from "../redux/ActionCreators";
-import Leftbar from "./LeftbarComponent";
-import News from "./NewsComponent";
+import Leftbar from "./partials/LeftbarComponent";
+import News from "./partials/NewsComponent";
 
 
 const mapStateToProps = state => {

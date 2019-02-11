@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Dimensions, FlatList, ActivityIndicator } from 'react-native';
 var { width, height } = Dimensions.get('window');// You can import from local files
-import { Loading } from './LoadingComponent';
-import { DataCall } from "../utils/DataCall";
+import { Loading } from './../LoadingComponent';
+import { DataCall } from "../../utils/DataCall";
 import { connect } from "react-redux";
-import { setUri } from "../redux/ActionCreators";
+import { setUri } from "../../redux/ActionCreators";
 import MyListItem from "./ListitemComponent";
 
 

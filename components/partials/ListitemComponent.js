@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, ActivityIndicator, Share} from 'react-native';
 import { Button as Alias, Image, Text, Icon} from 'react-native-elements';
-import { EXTRACTHOSTNAME } from "../utils/extracthostname";
-import { GETHOSTNAME } from "../utils/gethostname";
-import { TIMESINCE } from "../utils/timesince";
+import { EXTRACTHOSTNAME } from "../../utils/extracthostname";
+import { GETHOSTNAME } from "../../utils/gethostname";
+import { TIMESINCE } from "../../utils/timesince";
 import { connect } from "react-redux";
-import { setUri } from "../redux/ActionCreators";
+import { setUri } from "../../redux/ActionCreators";
 import { WebBrowser } from 'expo';
 let catArray = ['home', 'search-engine-optimization', 'search-engine-marketing', 'analytics', 'content-marketing', 'mobile', 'social-media-marketing', 'google-adwords', 'facebook', 'india-jobs', 'international-jobs', 'freelancing-jobs', 'artificial-intelligence', 'entrepreneurship', 'digital-marketing-tips', 'post', 'snapchat', 'instagram', 'twitter', 'whatsapp', 'youtube', 'cyber-security', 'technology-tips']
 
