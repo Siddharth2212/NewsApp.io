@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { View, Dimensions} from 'react-native';
 var { width, height } = Dimensions.get('window');// You can import from local files
-import { Header, SearchBar } from 'react-native-elements';
+import { Header, SearchBar, Button, Icon } from 'react-native-elements';
 import { connect } from "react-redux";
-import { setUri } from "../../redux/ActionCreators";
+import {fetchDishes, setUri} from "../../redux/ActionCreators";
+import  Login from "../LoginComponent";
+import  Dishdetail from "../DishdetailComponent";
 
 const mapStateToProps = state => {
     return {
@@ -12,7 +14,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    setUri: (uri) => dispatch(setUri(uri))
+    setUri: (uri) => dispatch(setUri(uri)),
+    fetchDishes: (category, size, searchString) => dispatch(fetchDishes(category, size, searchString))
 })
 
 class Tab extends Component {
@@ -41,6 +44,11 @@ class Tab extends Component {
         this.setState({ search });
     };
 
+    navigateToLogin(){
+        console.log('HERE');
+        this.props.navigation.navigate('Dishdetail');
+    }
+
 
     render() {
         const { search } = this.state;
@@ -63,9 +71,30 @@ class Tab extends Component {
                     value={search}
                     onChangeText={this.updateSearch}
                     placeholder="Type to search..."
-                    icon = {{type: 'font-awesome', color: '#86939e', name: 'search' }}
-                    clearIcon = {{type: 'font-awesome', color: '#86939e', name: 'search' }}
+                    icon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: () => {
+                        console.log('HELLOOOOO');
+                            this.props.navigation.navigate('Favorites')
+                        } }}
+                    clearIcon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: (search) => {
+                            console.log('HELLOOOOO');
+                            console.log(this.state.search);
+                            this.props.fetchDishes(-1, 20, 'SEO');
+                            this.props.navigation.navigate('Search', {searchString: 'SEO'})
+                        }  }}
                     round={true}/>
+                {/*<Button
+                    icon={
+                        <Icon
+                            type="font-awesome"
+                            name="user"
+                            size={15}
+                            color="white"
+                        />
+                    }
+                    iconRight
+                    title="Button with right icon"
+                    onPress={() => this.navigateToLogin()}
+                />*/}
             </View>
         )
     }

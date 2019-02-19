@@ -46,7 +46,7 @@ class Tab extends Component {
     }
 
     _renderItem = ({item, index}) => (
-        (index==1)? <Leftbar flatListRef={this.flatListRef} scrollToItem={()=>this.scrollToItem} width={width}/> : <News navigation={this.props.navigation} width={width}/>
+        (index==1)? <Leftbar navigation={this.props.navigation} flatListRef={this.flatListRef} scrollToItem={()=>this.scrollToItem} width={width}/> : <News navigation={this.props.navigation} width={width}/>
     );
 
     onViewableItemsChanged = ({ viewableItems, changed }) => {
@@ -54,16 +54,20 @@ class Tab extends Component {
         console.log(viewableItems.length);
         let flatListRef = this.flatListRef;
         if(viewableItems.length==1){
-            BackHandler.addEventListener('hardwareBackPress', function() {
+            this.backHandler = BackHandler.addEventListener('hardwareBackPress', function() {
                 BackHandler.exitApp();
             });
         }
         else{
-            BackHandler.addEventListener('hardwareBackPress', function() {
+            this.backHandler = BackHandler.addEventListener('hardwareBackPress', function() {
                 flatListRef.scrollToIndex({animated: true, index: 0});
                 return true;
             });
         }
+    }
+
+    componentWillUnmount() {
+        this.backHandler.remove();
     }
 
     scrollToIndex = () => {

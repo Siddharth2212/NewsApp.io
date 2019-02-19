@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, Text, StyleSheet, ScrollView} from 'react-native';
 import { Icon } from "react-native-elements";
 import Favorites from "./FavoriteComponent";
+import Search from "./SearchComponent";
 import Dishdetail from "./DishdetailComponent";
 import News from "./HomeComponent";
 import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
@@ -98,11 +99,20 @@ const NewsNavigator = createStackNavigator({
                 headerTitleStyle: {
                     color: "#fff"
                 }
+            }},
+        Search: { screen: Search,
+            navigationOptions: {
+                headerStyle: {
+                    backgroundColor: "#2196f3"
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: "#fff"
+                }
             }}
     },
     {
-        initialRouteName: 'Home',
-        headerMode: 'none',
+        initialRouteName: 'Home'
     }
 );
 

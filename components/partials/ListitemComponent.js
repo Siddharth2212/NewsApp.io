@@ -51,7 +51,7 @@ class MyListItem extends React.PureComponent {
             <View style={{ width: this.props.width, height: this.props.height}}  key={item.newsid}>
                 <Image
                     source={{ uri: item.approved_image }}
-                    style={{ height: 180 }}
+                    style={{ height: 250 }}
                     PlaceholderContent={<ActivityIndicator />}
                 />
                 <View style={{ flexDirection: "row",
@@ -60,19 +60,41 @@ class MyListItem extends React.PureComponent {
                     justifyContent: 'flex-start'}}>
                     <Text h4>{item.approved_title}</Text>
                 </View>
-                <View style={{ flexDirection: "row",
+                <View style={{ flexDirection: "row", alignItems: 'center',
+                    margin:5,
+                    justifyContent: 'flex-start', }}>
+                    <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago`}</Text>
+                    <Icon
+                        raised
+                        reverse
+                        name={ false ? 'bookmark' : 'bookmark-o'}
+                        type='font-awesome'
+                        color='#f50'
+                        size={20}
+                        onPress={() => console.log('Already favorite')}
+                    />
+                    <Icon
+                        raised
+                        reverse
+                        name='share'
+                        type='font-awesome'
+                        color='#51D2A8'
+                        size={20}
+                        onPress={() => shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
+                </View>
+                {/*<View style={{ flexDirection: "row",
                     alignItems: 'center',
                     margin: 5,
                     justifyContent: 'flex-start'}}>
                     <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago`}</Text>
-                </View>
+                </View>*/}
                 <View style={{ flexDirection: "row",
                     alignItems: 'center',
                     margin: 5,
                     justifyContent: 'flex-start'}}>
                     <Text>{item.approved_description}</Text>
                 </View>
-                <View style={{ flexDirection: "row", alignItems: 'center',
+                {/*<View style={{ flexDirection: "row", alignItems: 'center',
                     justifyContent: 'flex-start', }}>
                     <Icon
                         raised
@@ -89,7 +111,7 @@ class MyListItem extends React.PureComponent {
                         type='font-awesome'
                         color='#51D2A8'
                         onPress={() => shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
-                </View>
+                </View>*/}
                 <View style={{ flexDirection: "row",
                     alignItems: 'center',
                     justifyContent: 'flex-start'}}>

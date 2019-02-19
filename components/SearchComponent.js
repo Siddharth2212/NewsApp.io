@@ -9,7 +9,7 @@ import {deleteFavorite, fetchFavorites} from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
-        favorites: state.favorites
+        dishes: state.dishes
     }
 }
 
@@ -62,14 +62,14 @@ class Favorites extends Component {
 
             return (
                 <Swipeout right={rightButton} autoClose={true}>
-                        <ListItem
-                            key={index}
-                            title={item.approved_title}
-                            subtitle={item.approved_description}
-                            hideChevron={true}
-                            onPress={() => navigate('Dishdetail', { dish: item })}
-                            leftAvatar={{ source: {uri: item.approved_image}}}
-                        />
+                    <ListItem
+                        key={index}
+                        title={item.approved_title}
+                        subtitle={item.approved_description}
+                        hideChevron={true}
+                        onPress={() => navigate('Dishdetail', { dish: item })}
+                        leftAvatar={{ source: {uri: item.approved_image}}}
+                    />
                 </Swipeout>
             );
         };

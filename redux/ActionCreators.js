@@ -31,11 +31,15 @@ export const addComments = (comments) => ({
     payload: comments
 });
 
-export const fetchDishes = (category=-1, page=1) => (dispatch) => {
-    let url = baseUrl + 'mobilefeed/data?page='+page;
+export const fetchDishes = (category=-1, size=10, searchString=null) => (dispatch) => {
+    let url = baseUrl + 'mobilefeed2/data?size='+size;
 
     if(category!==-1){
         url = url + '&category='+category
+    }
+
+    if(searchString){
+        url = url + '&searchString='+searchString
     }
 
     dispatch(dishesLoading());
