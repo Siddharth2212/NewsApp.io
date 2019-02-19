@@ -31,15 +31,11 @@ export const addComments = (comments) => ({
     payload: comments
 });
 
-export const fetchDishes = (category=-1, size=10, searchString=null) => (dispatch) => {
-    let url = baseUrl + 'mobilefeed2/data?size='+size;
+export const fetchDishes = (category=-1, page=1) => (dispatch) => {
+    let url = baseUrl + 'mobilefeed/data?page='+page;
 
     if(category!==-1){
         url = url + '&category='+category
-    }
-
-    if(searchString){
-        url = url + '&searchString='+searchString
     }
 
     dispatch(dishesLoading());
@@ -181,11 +177,6 @@ export const deleteFavorite = (dishId) => ({
 export const setUri = (uri) => ({
     type: ActionTypes.SET_URI,
     payload: uri
-});
-
-export const setIndex = (index) => ({
-    type: ActionTypes.SET_INDEX,
-    payload: index
 });
 
 export const postComment = (dishId, rating, email, comment)  => (dispatch) => {

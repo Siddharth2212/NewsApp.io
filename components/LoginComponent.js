@@ -1,8 +1,6 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { AuthSession, WebBrowser, Linking } from 'expo'
-import {Header} from "react-native-elements";
-
 export default class Login extends React.Component {
     state = {
         authResult: {},
@@ -17,16 +15,6 @@ export default class Login extends React.Component {
         } else {
             return (
                 <View style={styles.container}>
-                    <Header
-                        statusBarProps={{ barStyle: 'light-content' }}
-                        barStyle="light-content" // or directly
-                        rightComponent={{ icon: 'chevron-right', style: { color: '#fff' }, onPress: () =>  this.props.flatListRef.scrollToIndex({animated: true, index: 0})}}
-                        centerComponent={{ text: 'NewsApp.io', style: { color: '#fff' } }}
-                        containerStyle={{
-                            backgroundColor: '#2196f3',
-                            justifyContent: 'space-around',
-                        }}
-                    />
                     <Button title="Login with LinkedIn" onPress={this.handleOAuthLogin} />
                 </View>
             )

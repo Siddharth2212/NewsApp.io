@@ -3,8 +3,10 @@ import { FlatList, View, Text, Alert } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 import Swipeout from 'react-native-swipeout';
 import {deleteFavorite, fetchFavorites} from "../redux/ActionCreators";
+import * as Animatable from 'react-native-animatable';
 
 
 const mapStateToProps = state => {
@@ -26,8 +28,6 @@ class Favorites extends Component {
 
     componentDidMount(){
         this.props.fetchFavorites("siddharthsogani1@gmail.com");
-        console.log('HERE');
-        console.log(this.props.navigation.navigate);
     }
 
     render() {
@@ -74,22 +74,22 @@ class Favorites extends Component {
             );
         };
 
-        if (this.props.dishes.isLoading) {
+        if (this.props.favorites.isLoading) {
             return(
                 <Loading />
             );
         }
-        else if (this.props.dishes.errMess) {
+        else if (this.props.favorites.errMess) {
             return(
                 <View>
-                    <Text>{this.props.dishes.errMess}</Text>
+                    <Text>{this.props.favorites.errMess}</Text>
                 </View>
             );
         }
         else {
             return (
                 <FlatList
-                    data={this.props.dishes.dishes}
+                    data={this.props.favorites.favorites}
                     renderItem={renderMenuItem}
                     keyExtractor={item => item.newsid.toString()}
                 />

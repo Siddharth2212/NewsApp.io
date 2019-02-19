@@ -3,9 +3,7 @@ import { View, Dimensions} from 'react-native';
 var { width, height } = Dimensions.get('window');// You can import from local files
 import { Header, SearchBar, Button, Icon } from 'react-native-elements';
 import { connect } from "react-redux";
-import {fetchDishes, setUri} from "../../redux/ActionCreators";
-import  Login from "../LoginComponent";
-import  Dishdetail from "../DishdetailComponent";
+import {fetchDishes, setUri} from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
@@ -58,7 +56,7 @@ class Tab extends Component {
                 <Header
                     statusBarProps={{ barStyle: 'light-content' }}
                     barStyle="light-content" // or directly
-                    rightComponent={{ icon: 'chevron-right', style: { color: '#fff' }, onPress: () =>  this.props.flatListRef.scrollToIndex({animated: true, index: 0})}}
+                    rightComponent={{ icon: 'chevron-right', color: '#fff', onPress: () =>  this.props.swipe(1)}}
                     centerComponent={{ text: 'NewsApp.io', style: { color: '#fff' } }}
                     containerStyle={{
                         backgroundColor: '#2196f3',
