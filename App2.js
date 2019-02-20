@@ -1,11 +1,3 @@
-import Main from './components/MainComponent';
-import { Provider } from 'react-redux';
-import { ConfigureStore } from './redux/configureStore';
-import { PersistGate } from 'redux-persist/es/integration/react'
-import { Loading } from './components/LoadingComponent';
-
-const { persistor, store } = ConfigureStore();
-
 import React, { Component } from 'react';
 import {
     StyleSheet,
@@ -16,7 +8,7 @@ import {
 } from 'react-native';
 import {Notifications, Permissions, Constants} from 'expo';
 
-const PUSH_REGISTRATION_ENDPOINT = 'https://tranquil-cliffs-80326.herokuapp.com/token';
+const PUSH_REGISTRATION_ENDPOINT = 'http://192.168.1.3:3000/token';
 const MESSAGE_ENPOINT = 'http://192.168.1.3:3000/message';
 
 async function getToken() {
@@ -57,32 +49,29 @@ export default class App extends Component {
         messageText: ''
     }
 
-    async presentLocalNotification(title, body) {
-        await this.obtainNotificationPermission();
-        Notifications.presentLocalNotificationAsync({
-            title: title,
-            body: body,
-            ios: {
-                sound: true
+    sendMessage = async () => {
+        fetch(MESSAGE_ENPOINT, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
             },
-            android: {
-                sound: true,
-                vibrate: true,
-                color: '#512DA8'
-            }
+            body: JSON.stringify({
+                message: this.state.messageText,
+            }),
         });
+        this.setState({ messageText: '' });
     }
 
-    async obtainNotificationPermission() {
-        let permission = await Permissions.getAsync(Permissions.USER_FACING_NOTIFICATIONS);
-        if (permission.status !== 'granted') {
-            permission = await Permissions.askAsync(Permissions.USER_FACING_NOTIFICATIONS);
-            if (permission.status !== 'granted') {
-                Alert.alert('Permission not granted to show notifications');
-            }
-        }
-        return permission;
+    renderNotification() {
+        return(
+            <View style={styles.container}>
+                <Text style={styles.label}>A new message was recieved!</Text>
+                <Text>{this.state.notification.data.message}</Text>
+            </View>
+        )
     }
+
 
     componentDidMount() {
         getToken();
@@ -98,21 +87,27 @@ export default class App extends Component {
         console.log(
             `Push notification ${notification.origin} with data: ${JSON.stringify(notification.data)}`,
         );
-        if (notification.origin === 'received') {
-            // this.presentLocalNotification(notification.data.message.split('_')[0], notification.data.message.split('_')[1]);
-            this.setState({ notification });
-        }
+        this.setState({ notification });
     };
 
     render() {
         return (
-            <Provider store={store}>
-                <PersistGate
-                    loading={<Loading />}
-                    persistor={persistor}>
-                    <Main />
-                </PersistGate>
-            </Provider>
+            <View style={styles.container}>
+                <TextInput
+                    value={this.state.messageText}
+                    onChangeText={this.handleChangeText}
+                    style={styles.textInput}
+                />
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={this.sendMessage}
+                >
+                    <Text style={styles.buttonText}>Send</Text>
+                </TouchableOpacity>
+                {this.state.notification ?
+                    this.renderNotification()
+                    : null}
+            </View>
         );
     }
 }
