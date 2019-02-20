@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { View, Dimensions, ActivityIndicator, WebView, StyleSheet, Platform } from 'react-native';
+import { View, Dimensions, ActivityIndicator, WebView, StyleSheet, Platform, Linking } from 'react-native';
 var {width, height} = Dimensions.get('window');// You can import from local files
 import {Header} from 'react-native-elements';
 import {EXTRACTHOSTNAME} from "../utils/extracthostname";
 import {GETHOSTNAME} from "../utils/gethostname";
 import {connect} from "react-redux";
-import {setUri} from "../redux/ActionCreators";
+import {setLoading, setUri} from "../redux/ActionCreators";
+import {Activityindicator} from "./ActivityindicatorComponent";
 
 const styles = StyleSheet.create(
     {
@@ -36,7 +37,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    setUri: (uri) => dispatch(setUri(uri))
+    setUri: (uri) => dispatch(setUri(uri)),
+    setLoading: (loading) => dispatch(setLoading(loading)),
 })
 
 class Tab extends Component {
@@ -48,7 +50,8 @@ class Tab extends Component {
             data: [],
             page: 1,
             count: 1,
-            inProgressNetworkReq: false
+            inProgressNetworkReq: false,
+            loading: false,
         };
     }
 
@@ -64,6 +67,15 @@ class Tab extends Component {
         );
     }
 
+    _onNavigationStateChange(webViewState){
+        console.log(webViewState);
+        this.props.setLoading(webViewState.loading)
+    }
+
+    componentDidMount(){
+        // Linking.openURL('https://expo.io');
+    }
+
     render() {
         let newsLink = (newsfeed) => {
             var itemlink = ((typeof newsfeed.added!='undefined' && newsfeed.added == 'true') ? EXTRACTHOSTNAME(newsfeed.link) : GETHOSTNAME(newsfeed.link.split('url=')[1], newsfeed));
@@ -73,8 +85,9 @@ class Tab extends Component {
             <View style={{flex:1, backgroundColor: 'blue'}}>
                 <Header
                     leftComponent={{ icon: 'chevron-left', color: '#fff', onPress: () =>  this.props.swipe(1) }}
-                    centerComponent={{ text: newsLink({link: this.props.dishes.uri}), style: { color: '#fff' } }}
-                    // rightComponent={{ icon: 'home', color: '#fff' }}
+                    centerComponent= {this.props.dishes.loading==true?<Activityindicator loading={true} url={newsLink({link: this.props.dishes.uri})} />: <Activityindicator loading={false} url={newsLink({link: this.props.dishes.uri})} /> }
+
+                // rightComponent={{ icon: 'home', color: '#fff' }}
                 />
                 <View style={{flex:1, backgroundColor: 'blue'}}>
                     <WebView
@@ -84,6 +97,7 @@ class Tab extends Component {
                         domStorageEnabled={true}
                         renderLoading={this.ActivityIndicatorLoadingView}
                         startInLoadingState={true}
+                        onNavigationStateChange={this._onNavigationStateChange.bind(this)}
                     />
                 </View>
             </View>

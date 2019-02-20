@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, View, Dimensions, FlatList, ActivityIndicator} from 'react-native';
+import {Button, View, Dimensions, FlatList, ActivityIndicator, Share} from 'react-native';
 var {width, height} = Dimensions.get('window');// You can import from local files
 import { Loading } from './LoadingComponent';
 import { Card, Icon, Button as Alias, Image, Text} from 'react-native-elements';
@@ -9,6 +9,10 @@ import {GETHOSTNAME} from "../utils/gethostname";
 import {TIMESINCE} from "../utils/timesince";
 import {connect} from "react-redux";
 import {setUri} from "../redux/ActionCreators";
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+import {WebBrowser} from "expo";
+
+let catArray = ['home', 'search-engine-optimization', 'search-engine-marketing', 'analytics', 'content-marketing', 'mobile', 'social-media-marketing', 'google-adwords', 'facebook', 'india-jobs', 'international-jobs', 'freelancing-jobs', 'artificial-intelligence', 'entrepreneurship', 'digital-marketing-tips', 'post', 'snapchat', 'instagram', 'twitter', 'whatsapp', 'youtube', 'cyber-security', 'technology-tips']
 
 const mapStateToProps = state => {
     return {
@@ -22,13 +26,38 @@ const mapDispatchToProps = dispatch => ({
 
 // or any pure javascript modules available in npm
 class MyListItem extends React.PureComponent {
+    onSwipeLeft(gestureState) {
+        console.log('You swiped left')
+    }
+
     render() {
+        const shareDish = (title, message, url) => {
+            Share.share({
+                title: title,
+                message: title + ': ' + message + ' ' + url,
+                url: url
+            },{
+                dialogTitle: 'Share ' + title
+            })
+        }
         let newsLink = (newsfeed) => {
             var itemlink = ((typeof newsfeed.added!='undefined' && newsfeed.added == 'true') ? EXTRACTHOSTNAME(newsfeed.link) : GETHOSTNAME(newsfeed.link.split('url=')[1], newsfeed));
             return itemlink;
         }
         let item = this.props.item;
+        const config = {
+            velocityThreshold: 0.1,
+            directionalOffsetThreshold: 10
+        };
         return (
+            <GestureRecognizer
+                onSwipeLeft={(state) => this.onSwipeLeft(state)}
+                config={config}
+                style={{
+                    flex: 1,
+                    backgroundColor: 'white'
+                }}
+            >
             <View style={{ width: this.props.width, height: this.props.height}}  key={item.newsid}>
                 <Image
                     source={{ uri: item.approved_image }}
@@ -106,6 +135,7 @@ class MyListItem extends React.PureComponent {
                     />
                 </View>
             </View>
+            </GestureRecognizer>
         )
     }
 }

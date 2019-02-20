@@ -4,13 +4,27 @@ import randomcolor from 'randomcolor'
 import News from "./NewsComponent";
 import Browser from "./WebviewComponent";
 import Leftbar from "./LeftbarComponent";
+import {WebBrowser} from "expo";
 
 import {
     View,
     Text,
-    StyleSheet, Platform, BackHandler, Dimensions
+    StyleSheet, Platform, BackHandler, Dimensions, Linking
 } from 'react-native';
+import {connect} from "react-redux";
+import {setLoading, setUri} from "../redux/ActionCreators";
 var { width, height } = Dimensions.get('window');// You can import from local files
+
+const mapStateToProps = state => {
+    return {
+        dishes: state.dishes
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    setUri: (uri) => dispatch(setUri(uri)),
+    setLoading: (loading) => dispatch(setLoading(loading)),
+})
 
 class TitleText extends Component {
     render() {
@@ -48,6 +62,8 @@ class Home extends Component {
         }
         else if(index==2){
             console.log('HERE'+index);
+            // this.jumpToSlide(1);
+            // WebBrowser.openBrowserAsync('https://expo.io');
         }
     };
 
@@ -76,4 +92,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

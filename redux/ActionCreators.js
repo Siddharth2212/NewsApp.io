@@ -179,6 +179,11 @@ export const setUri = (uri) => ({
     payload: uri
 });
 
+export const setLoading = (loading) => ({
+    type: ActionTypes.SET_LOADING,
+    payload: loading
+});
+
 export const postComment = (dishId, rating, email, comment)  => (dispatch) => {
     let commentPayload = {
         dishId: dishId,
