@@ -7,17 +7,10 @@ import { Loading } from './components/LoadingComponent';
 const { persistor, store } = ConfigureStore();
 
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    TextInput,
-    TouchableOpacity
-} from 'react-native';
+
 import {Notifications, Permissions, Constants} from 'expo';
 
 const PUSH_REGISTRATION_ENDPOINT = 'https://tranquil-cliffs-80326.herokuapp.com/token';
-const MESSAGE_ENPOINT = 'http://192.168.1.3:3000/message';
 
 async function getToken() {
     // Remote notifications do not work in simulators, only on device
@@ -57,33 +50,6 @@ export default class App extends Component {
         messageText: ''
     }
 
-    async presentLocalNotification(title, body) {
-        await this.obtainNotificationPermission();
-        Notifications.presentLocalNotificationAsync({
-            title: title,
-            body: body,
-            ios: {
-                sound: true
-            },
-            android: {
-                sound: true,
-                vibrate: true,
-                color: '#512DA8'
-            }
-        });
-    }
-
-    async obtainNotificationPermission() {
-        let permission = await Permissions.getAsync(Permissions.USER_FACING_NOTIFICATIONS);
-        if (permission.status !== 'granted') {
-            permission = await Permissions.askAsync(Permissions.USER_FACING_NOTIFICATIONS);
-            if (permission.status !== 'granted') {
-                Alert.alert('Permission not granted to show notifications');
-            }
-        }
-        return permission;
-    }
-
     componentDidMount() {
         getToken();
 
@@ -99,7 +65,6 @@ export default class App extends Component {
             `Push notification ${notification.origin} with data: ${JSON.stringify(notification.data)}`,
         );
         if (notification.origin === 'received') {
-            // this.presentLocalNotification(notification.data.message.split('_')[0], notification.data.message.split('_')[1]);
             this.setState({ notification });
         }
     };
@@ -116,29 +81,3 @@ export default class App extends Component {
         );
     }
 }
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#474747',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    textInput: {
-        height: 50,
-        width: 300,
-        borderColor: '#f6f6f6',
-        borderWidth: 1,
-        backgroundColor: '#fff',
-        padding: 10
-    },
-    button: {
-        padding: 10
-    },
-    buttonText: {
-        fontSize: 18,
-        color: '#fff'
-    },
-    label: {
-        fontSize: 18
-    }
-});

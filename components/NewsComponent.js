@@ -74,22 +74,22 @@ class MyListItem extends React.PureComponent {
                     margin:5,
                     justifyContent: 'flex-start', }}>
                     <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago`}</Text>
-                    <Icon
+                    {/*<Icon
                         raised
                         reverse
                         name={ false ? 'bookmark' : 'bookmark-o'}
                         type='font-awesome'
                         color='#f50'
-                        size={20}
+                        size={10}
                         onPress={() => console.log('Already favorite')}
-                    />
+                    />*/}
                     <Icon
                         raised
                         reverse
                         name='share'
                         type='font-awesome'
                         color='#51D2A8'
-                        size={20}
+                        size={10}
                         onPress={() => shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
                 </View>
                 {/*<View style={{ flexDirection: "row",
