@@ -8,7 +8,7 @@ import {
     Button,
     Image,
     ActivityIndicator,
-    StatusBar,
+    StatusBar, AsyncStorage
 } from 'react-native'
 import { Header, SearchBar, SocialIcon } from 'react-native-elements';
 import { connect } from "react-redux";
@@ -91,8 +91,7 @@ class Tab extends Component {
             access_token: undefined,
             expires_in: undefined,
             refreshing: false,
-            college_name: null,
-            location: null
+            signedinwith: null
         };
         this.loaded = false;
         // StatusBar.setHidden(true)
@@ -102,6 +101,26 @@ class Tab extends Component {
         setTimeout(function () {
             this.loaded = true
         }, 1000)
+        this._retrieveData();
+    }
+
+    _retrieveData = async () => {
+        try {
+            const value = await AsyncStorage.getItem('signedintoken');
+            if (value !== null) {
+                // We have data!!
+                console.log('retriving data');
+                console.log(value);
+                this.getUser({access_token: value});
+            }
+            else{
+                console.log('NULLLLLL');
+            }
+        } catch (error) {
+            console.log("ERRORRRR");
+            console.log(error);
+            // Error retrieving data
+        }
     }
 
     updateSearch = search => {
@@ -126,10 +145,26 @@ class Tab extends Component {
         const response = await fetch(`${baseApi}~:(${params.join(',')})?format=json`, {
             method: 'GET',
             headers: {
-                Authorization: 'Bearer ' + access_token,
+                Authorization: 'Bearer ' + access_token+'',
             },
         })
         let payload = await response.json()
+
+        console.log('PAYLOGGG');
+
+        if(payload.status && payload.status ==401){
+            console.log('invalid access token');
+            try {
+                await AsyncStorage.removeItem('signedintoken');
+            } catch (error) {
+                // Error retrieving data
+                console.log(error.message);
+            }
+        }
+        else{
+            console.log(payload);
+            this._storeData(access_token)
+        }
 
         const userinfo = await fetch('https://www.newsapp.io/userdata?email='+payload.emailAddress+'');
 
@@ -145,8 +180,17 @@ class Tab extends Component {
             payload.linkedinshares = 0
             payload.twittershares = 0
         }
-
         this.setState({ ...payload, refreshing: false })
+    }
+
+    _storeData = async (token) => {
+        try {
+            await AsyncStorage.setItem('signedintoken', token);
+        } catch (error) {
+            console.log('error saving data');
+            console.log(error);
+            // Error saving data
+        }
     }
 
     renderItem(label, value) {
