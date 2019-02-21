@@ -30,16 +30,34 @@ class MyListItem extends React.PureComponent {
         console.log('You swiped left')
     }
 
-    render() {
-        const shareDish = (title, message, url) => {
-            Share.share({
+    async shareDish(title, message, url) {
+        try{
+            const result = await Share.share({
                 title: title,
                 message: title + ': ' + message + ' ' + url,
                 url: url
             },{
                 dialogTitle: 'Share ' + title
             })
+
+            if (result.action === Share.sharedAction) {
+                console.log(result);
+                if (result.activityType) {
+                    console.log(result.activityType);
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                console.log('dismissed');
+                // dismissed
+            }
+        } catch (error) {
+            console.log(error.message);
         }
+    }
+
+    render() {
         let newsLink = (newsfeed) => {
             var itemlink = ((typeof newsfeed.added!='undefined' && newsfeed.added == 'true') ? EXTRACTHOSTNAME(newsfeed.link) : GETHOSTNAME(newsfeed.link.split('url=')[1], newsfeed));
             return itemlink;
@@ -90,7 +108,7 @@ class MyListItem extends React.PureComponent {
                         type='font-awesome'
                         color='#51D2A8'
                         size={10}
-                        onPress={() => shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
+                        onPress={() => this.shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
                 </View>
                 {/*<View style={{ flexDirection: "row",
                     alignItems: 'center',

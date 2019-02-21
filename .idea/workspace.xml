@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2dbc008b-947a-40b3-8053-da6ed4801256" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
-      <change beforePath="$PROJECT_DIR$/App2.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/LeftbarComponent.js" afterPath="$PROJECT_DIR$/components/LeftbarComponent.js" />
       <change beforePath="$PROJECT_DIR$/components/NewsComponent.js" afterPath="$PROJECT_DIR$/components/NewsComponent.js" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +23,8 @@
       <file leaf-file-name="HomeComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/HomeComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -31,11 +32,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LeftbarComponent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="230" column="27" lean-forward="false" selection-start-line="230" selection-start-column="24" selection-end-line="231" selection-end-column="77" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataCall.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/DataCall.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="WebviewComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/WebviewComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-614">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="466">
+              <caret line="91" column="16" lean-forward="false" selection-start-line="91" selection-start-column="16" selection-end-line="101" selection-end-column="23" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <element signature="e#232#277#0" expanded="true" />
@@ -74,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewsComponent.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewsComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="82" column="31" lean-forward="false" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+            <state relative-caret-position="-2657">
+              <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <element signature="e#215#260#0" expanded="true" />
@@ -112,32 +135,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityindicatorComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/ActivityindicatorComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Favori</find>
-      <find>Image</find>
-      <find>image</find>
-      <find>ago</find>
-      <find>_renderItem</find>
-      <find>height</find>
-      <find>newsid</find>
-      <find>width</find>
-      <find>Read mo</find>
-      <find>Left</find>
       <find>Dishdeta</find>
       <find>Drawer</find>
       <find>swipe</find>
@@ -146,7 +147,6 @@
       <find>onSwipeLeft</find>
       <find>Loading</find>
       <find>setUri</find>
-      <find>loading</find>
       <find>Share</find>
       <find>message</find>
       <find>registerForPushNotificationsAsync</find>
@@ -158,6 +158,17 @@
       <find>received</find>
       <find>handleNotification</find>
       <find>.split</find>
+      <find>bookmar</find>
+      <find>loading</find>
+      <find>redirec</find>
+      <find>labelContainer</find>
+      <find>external</find>
+      <find>round</find>
+      <find>linkedInContainer</find>
+      <find>linkText</find>
+      <find>basic</find>
+      <find>shareDish</find>
+      <find>linkedin</find>
     </findStrings>
     <replaceStrings>
       <replace>Tabs</replace>
@@ -207,15 +218,15 @@
         <option value="$PROJECT_DIR$/components/partials/LeftbarComponent.js" />
         <option value="$PROJECT_DIR$/components/partials/NewsComponent.js" />
         <option value="$PROJECT_DIR$/components/MainComponent.js" />
-        <option value="$PROJECT_DIR$/components/LeftbarComponent.js" />
         <option value="$PROJECT_DIR$/components/ActivityindicatorComponent.js" />
         <option value="$PROJECT_DIR$/redux/dishes.js" />
         <option value="$PROJECT_DIR$/redux/ActionTypes.js" />
-        <option value="$PROJECT_DIR$/components/WebviewComponent.js" />
         <option value="$PROJECT_DIR$/redux/ActionCreators.js" />
-        <option value="$PROJECT_DIR$/components/HomeComponent.js" />
         <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/components/WebviewComponent.js" />
+        <option value="$PROJECT_DIR$/components/HomeComponent.js" />
         <option value="$PROJECT_DIR$/components/NewsComponent.js" />
+        <option value="$PROJECT_DIR$/components/LeftbarComponent.js" />
       </list>
     </option>
   </component>
@@ -334,12 +345,12 @@
       <updated>1549012626374</updated>
       <workItem from="1549012628303" duration="5723000" />
       <workItem from="1550046388429" duration="2893000" />
-      <workItem from="1550482311172" duration="22606000" />
+      <workItem from="1550482311172" duration="29022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105306000" />
+    <option name="totallyTimeSpent" value="111722000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -349,6 +360,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -361,7 +373,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -464,14 +475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/DataCall.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/FavoriteComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -552,16 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="58" column="60" lean-forward="false" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/LoadingComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -624,27 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/HomeComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/WebviewComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-614">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#232#277#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/TabComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -682,13 +654,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/WebviewComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="91" column="16" lean-forward="false" selection-start-line="91" selection-start-column="16" selection-end-line="101" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#232#277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/HomeComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/DataCall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="82" column="31" lean-forward="false" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+        <state relative-caret-position="-2657">
+          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#215#260#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="230" column="27" lean-forward="false" selection-start-line="230" selection-start-column="24" selection-end-line="231" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
