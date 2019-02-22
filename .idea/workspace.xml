@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dbc008b-947a-40b3-8053-da6ed4801256" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/redux/users.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/components/LeftbarComponent.js" afterPath="$PROJECT_DIR$/components/LeftbarComponent.js" />
-      <change beforePath="$PROJECT_DIR$/redux/ActionCreators.js" afterPath="$PROJECT_DIR$/redux/ActionCreators.js" />
-      <change beforePath="$PROJECT_DIR$/redux/ActionTypes.js" afterPath="$PROJECT_DIR$/redux/ActionTypes.js" />
-      <change beforePath="$PROJECT_DIR$/redux/configureStore.js" afterPath="$PROJECT_DIR$/redux/configureStore.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,9 +31,11 @@
       <file leaf-file-name="LeftbarComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="673">
+              <caret line="243" column="2" lean-forward="false" selection-start-line="243" selection-start-column="2" selection-end-line="243" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -340,12 +337,12 @@
       <workItem from="1550046388429" duration="2893000" />
       <workItem from="1550482311172" duration="33244000" />
       <workItem from="1550763118007" duration="17000" />
-      <workItem from="1550802549901" duration="7763000" />
+      <workItem from="1550802549901" duration="7916000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123724000" />
+    <option name="totallyTimeSpent" value="123877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -416,7 +413,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2010">
           <caret line="150" column="27" lean-forward="true" selection-start-line="150" selection-start-column="27" selection-end-line="150" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -745,9 +744,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="673">
+          <caret line="243" column="2" lean-forward="false" selection-start-line="243" selection-start-column="2" selection-end-line="243" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

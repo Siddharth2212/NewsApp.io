@@ -13,63 +13,6 @@ import LinkedInModal from 'react-native-linkedin'
 const CLIENT_ID = '81ubjdyk0k4ah7';
 const CLIENT_SECRET = 'pEwYCZvVrh4sVkwh';
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    userContainer: {
-        padding: 10,
-        backgroundColor: '#fff',
-        // justifyContent: 'center',
-        alignItems: 'center',
-    },
-    picture: {
-        width: 100,
-        height: 100,
-        borderRadius: 100,
-        resizeMode: 'cover',
-        marginBottom: 15,
-    },
-    item: {
-        flexDirection: 'row',
-        marginVertical: 5,
-    },
-    label: {
-        marginRight: 10,
-    },
-    value: {
-        fontWeight: 'bold',
-        marginLeft: 10,
-    },
-    linkedInContainer: {
-        // justifyContent: 'center',
-        // alignItems: 'center',
-    },
-    labelContainer: {
-        flex: 0.7,
-        alignItems: 'flex-end',
-    },
-    valueContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-    },
-    header: {
-        fontSize: 25
-    },
-    image: {
-        marginTop: 15,
-        width: 150,
-        height: 150,
-        borderColor: "rgba(0,0,0,0.2)",
-        borderWidth: 3,
-        borderRadius: 150
-    }
-})
-
 const mapStateToProps = state => {
     return {
         dishes: state.dishes,
@@ -242,5 +185,62 @@ class Tab extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    userContainer: {
+        padding: 10,
+        backgroundColor: '#fff',
+        // justifyContent: 'center',
+        alignItems: 'center',
+    },
+    picture: {
+        width: 100,
+        height: 100,
+        borderRadius: 100,
+        resizeMode: 'cover',
+        marginBottom: 15,
+    },
+    item: {
+        flexDirection: 'row',
+        marginVertical: 5,
+    },
+    label: {
+        marginRight: 10,
+    },
+    value: {
+        fontWeight: 'bold',
+        marginLeft: 10,
+    },
+    linkedInContainer: {
+        // justifyContent: 'center',
+        // alignItems: 'center',
+    },
+    labelContainer: {
+        flex: 0.7,
+        alignItems: 'flex-end',
+    },
+    valueContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+    },
+    header: {
+        fontSize: 25
+    },
+    image: {
+        marginTop: 15,
+        width: 150,
+        height: 150,
+        borderColor: "rgba(0,0,0,0.2)",
+        borderWidth: 3,
+        borderRadius: 150
+    }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tab);
