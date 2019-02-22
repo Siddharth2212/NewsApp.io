@@ -187,7 +187,7 @@ export const setLoading = (loading) => ({
 });
 
 export const authenticate = (actiontype) =>async (dispatch) => {
-    dispatch(userinfoLoading());
+    // dispatch(userinfoLoading());
     if(actiontype == 'signin'){
         try {
             let result;
