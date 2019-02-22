@@ -14,3 +14,6 @@ export const ADD_COMMENT = 'ADD_COMMENT';
 export const SET_URI = 'SET_URI';
 export const SET_LOADING = 'SET_LOADING';
 export const DELETE_FAVORITE = 'DELETE_FAVORITE';
+export const ADD_USERINFO = 'ADD_USERINFO';
+export const USERINFO_LOADING = 'USERINFO_LOADING';
+export const USERINFO_FAILED = 'USERINFO_FAILED';

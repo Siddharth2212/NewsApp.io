@@ -2,17 +2,14 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    Dimensions,
     Text,
     Image,
-    ActivityIndicator, AsyncStorage, Platform
+    ActivityIndicator, AsyncStorage
 } from 'react-native'
 import { Header, SearchBar, SocialIcon, Button, Icon } from 'react-native-elements';
 import { connect } from "react-redux";
-import {fetchDishes, setUri} from "../redux/ActionCreators";
+import {authenticate, getUser, signIn} from "../redux/ActionCreators";
 import LinkedInModal from 'react-native-linkedin'
-import {Google} from "expo";
-var { width, height } = Dimensions.get('window');// You can import from local files
 const CLIENT_ID = '81ubjdyk0k4ah7';
 const CLIENT_SECRET = 'pEwYCZvVrh4sVkwh';
 
@@ -75,44 +72,25 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
-        dishes: state.dishes
+        dishes: state.dishes,
+        userinfo: state.userinfo
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    setUri: (uri) => dispatch(setUri(uri)),
-    fetchDishes: (category, size, searchString) => dispatch(fetchDishes(category, size, searchString))
+    authenticate: (actiontype) => dispatch(authenticate(actiontype)),
+    getUser: (data) => dispatch(getUser(data)),
 })
 
 class Tab extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            width: width,
-            height: height,
-            data: [],
-            page: 1,
-            count: 1,
-            inProgressNetworkReq: false,
-            search: '',
-            selectedIndex: 0,
-            access_token: undefined,
-            expires_in: undefined,
-            refreshing: false,
-            signedInLinkedin: false,
-            signedIn: false,
-            name: "",
-            email: "",
-            photoUrl: ""
+            search: ''
         };
-        this.loaded = false;
-        // StatusBar.setHidden(true)
     }
 
     componentDidMount(){
-        setTimeout(function () {
-            this.loaded = true
-        }, 1000)
         this._retrieveData();
     }
 
@@ -121,13 +99,7 @@ class Tab extends Component {
             const value = await AsyncStorage.getItem('signedintoken');
             if (value !== null) {
                 // We have data!!
-                this.getUser({access_token: value});
-            }
-
-            const gmailvalue = await AsyncStorage.getItem('gmaillogin');
-            if (gmailvalue !== null) {
-                // We have data!!
-                this.setState(JSON.parse(gmailvalue))
+                this.props.getUser({access_token: value});
             }
 
         } catch (error) {
@@ -139,71 +111,6 @@ class Tab extends Component {
     updateSearch = search => {
         this.setState({ search });
     };
-
-    async getUser({ access_token }) {
-        this.setState({ refreshing: true })
-        const baseApi = 'https://api.linkedin.com/v1/people/'
-        const qs = { format: 'json' }
-        const params = [
-            'first-name',
-            'last-name',
-            'picture-urls::(original)',
-            'headline',
-            'email-address',
-            'num-connections',
-            'num-connections-capped',
-            'location'
-        ]
-
-        const response = await fetch(`${baseApi}~:(${params.join(',')})?format=json`, {
-            method: 'GET',
-            headers: {
-                Authorization: 'Bearer ' + access_token+'',
-            },
-        })
-        let payload = await response.json()
-
-        if(payload.status && payload.status ==401){
-            console.log('invalid access token');
-            try {
-                await AsyncStorage.removeItem('signedintoken');
-            } catch (error) {
-                // Error retrieving data
-                console.log(error.message);
-            }
-        }
-        else{
-            console.log(payload);
-            this._storeData('signedintoken', access_token)
-            this.setState({signedInLinkedin: true})
-        }
-
-        const userinfo = await fetch('https://www.newsapp.io/userdata?email='+payload.emailAddress+'');
-
-        const userinfodata = await userinfo.json();
-
-        if(!userinfodata.error && userinfodata.college_name){
-            payload.college_name = userinfodata.college_name
-            payload.linkedinshares = userinfodata.linkedinshares
-            payload.twittershares = userinfodata.twittershares
-        }
-        else{
-            payload.college_name = 'NA'
-            payload.linkedinshares = 0
-            payload.twittershares = 0
-        }
-        this.setState({ ...payload, refreshing: false })
-    }
-
-    _storeData = async (key, token) => {
-        try {
-            await AsyncStorage.setItem(key, token);
-        } catch (error) {
-            console.log('error saving data');
-            console.log(error);
-            // Error saving data
-        }
-    }
 
     renderItem(label, value) {
         return (
@@ -219,47 +126,7 @@ class Tab extends Component {
         )
     }
 
-    signIn = async () => {
-        try {
-            let result;
-            if(Platform.OS === 'android'){
-                result = await Google.logInAsync({
-                    androidClientId:
-                        "762764011407-500q22dk4v57g1q8t6uglf2um5290gnb.apps.googleusercontent.com",
-                    //iosClientId: YOUR_CLIENT_ID_HERE,  <-- if you use iOS
-                    scopes: ["profile", "email"]
-                })
-            }
-            else{
-                result = await Google.logInAsync({
-                    /*androidClientId:
-                        "762764011407-500q22dk4v57g1q8t6uglf2um5290gnb.apps.googleusercontent.com",*/
-                    iosClientId: "762764011407-500q22dk4v57g1q8t6uglf2um5290gnb.apps.googleusercontent.com",
-                    scopes: ["profile", "email"]
-                })
-            }
-
-            if (result.type === "success") {
-                let signinInfo = {
-                    signedIn: true,
-                    name: result.user.name,
-                    email: result.user.email,
-                    photoUrl: result.user.photoUrl
-                }
-                this.setState(signinInfo);
-                this._storeData('gmaillogin', JSON.stringify(signinInfo));
-            } else {
-                console.log("cancelled")
-            }
-        } catch (e) {
-            console.log("error", e)
-        }
-    }
-
-
     render() {
-        const { emailAddress, pictureUrls, refreshing, firstName, lastName, headline, college_name, location, numConnections, linkedinshares, twittershares } = this.state
-
         const { search } = this.state;
 
         return(
@@ -288,8 +155,8 @@ class Tab extends Component {
                             this.props.navigation.navigate('Search', {searchString: 'SEO'})
                         }  }}
                     round={true}/>
-                {!this.state.signedIn && !this.state.signedInLinkedin &&
-                !refreshing && (
+                {!(this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn) && !(this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) &&
+                !this.props.userinfo.isLoading && (
                     <View style={styles.linkedInContainer}>
                         <LinkedInModal
                             ref={ref => {
@@ -298,7 +165,7 @@ class Tab extends Component {
                             clientID={CLIENT_ID}
                             clientSecret={CLIENT_SECRET}
                             redirectUri="https://xaviercarpentier.com"
-                            onSuccess={data => this.getUser(data)}
+                            onSuccess={data => this.props.getUser(data)}
                             linkText={null}
                         />
                         <SocialIcon
@@ -311,24 +178,24 @@ class Tab extends Component {
                             title='Sign in With Google'
                             button
                             type='google-plus-official'
-                            onPress={() => this.signIn()}
+                            onPress={() => this.props.authenticate('signin')}
                         />
                     </View>
                 )}
 
-                {refreshing && <ActivityIndicator size="large" />}
+                {this.props.userinfo.isLoading && <ActivityIndicator size="large" />}
 
-                {emailAddress && this.state.signedInLinkedin && (
+                {this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin && (
                     <View style={styles.userContainer}>
-                        <Image style={styles.picture} source={{ uri: pictureUrls.values[0] }} />
-                        {this.renderItem('Email', emailAddress)}
-                        {this.renderItem('Name', firstName+" "+lastName)}
-                        {this.renderItem('No of connections', numConnections)}
+                        <Image style={styles.picture} source={{ uri: this.props.userinfo.userinfo.pictureUrls.values[0] }} />
+                        {this.renderItem('Email', this.props.userinfo.userinfo.emailAddress)}
+                        {this.renderItem('Name', this.props.userinfo.userinfo.firstName+" "+this.props.userinfo.userinfo.lastName)}
+                        {this.renderItem('No of connections', this.props.userinfo.userinfo.numConnections)}
                         {/*{this.renderItem('LinkedIn Shares', linkedinshares)}
                         {this.renderItem('Twitter Shares', twittershares)}*/}
                         {/*{this.renderItem('Headline', headline)}*/}
-                        {this.renderItem('College name', college_name)}
-                        {this.renderItem('Location', location.name)}
+                        {this.renderItem('College name', this.props.userinfo.userinfo.college_name)}
+                        {this.renderItem('Location', this.props.userinfo.userinfo.location.name)}
                         <Button
                             icon={
                                 <Icon
@@ -339,8 +206,7 @@ class Tab extends Component {
                                 />
                             }
                             onPress={async () => {
-                                this.setState({signedInLinkedin : false});
-                                await AsyncStorage.removeItem('signedintoken');
+                                this.props.authenticate('signout');
                             }}
                             title="Sign-out"
                         />
@@ -348,11 +214,11 @@ class Tab extends Component {
                 )}
 
                 <View style={styles.userContainer}>
-                    {this.state.signedIn ? (
+                    {this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn ? (
                         <View style={styles.userContainer}>
-                            <Image style={styles.picture} source={{ uri: this.state.photoUrl }} />
-                            {this.renderItem('Email', this.state.email)}
-                            {this.renderItem('Name', this.state.name)}
+                            <Image style={styles.picture} source={{ uri: this.props.userinfo.userinfo.photoUrl }} />
+                            {this.renderItem('Email', this.props.userinfo.userinfo.email)}
+                            {this.renderItem('Name', this.props.userinfo.userinfo.name)}
                             <Button
                                 icon={
                                     <Icon
@@ -363,8 +229,7 @@ class Tab extends Component {
                                     />
                                 }
                                 onPress={async () => {
-                                    this.setState({signedIn : false});
-                                    await AsyncStorage.removeItem('gmaillogin');
+                                    this.props.authenticate('signout');
                                 }}
                                 title="Sign-out"
                             />

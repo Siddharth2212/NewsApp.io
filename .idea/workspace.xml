@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dbc008b-947a-40b3-8053-da6ed4801256" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/App2.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/redux/users.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/components/LeftbarComponent.js" afterPath="$PROJECT_DIR$/components/LeftbarComponent.js" />
+      <change beforePath="$PROJECT_DIR$/redux/ActionCreators.js" afterPath="$PROJECT_DIR$/redux/ActionCreators.js" />
+      <change beforePath="$PROJECT_DIR$/redux/ActionTypes.js" afterPath="$PROJECT_DIR$/redux/ActionTypes.js" />
+      <change beforePath="$PROJECT_DIR$/redux/configureStore.js" afterPath="$PROJECT_DIR$/redux/configureStore.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,14 +33,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LeftbarComponent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LeftbarComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="290" column="17" lean-forward="false" selection-start-line="290" selection-start-column="17" selection-end-line="290" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,13 +55,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-446">
+            <state relative-caret-position="-497">
               <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dishes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/redux/dishes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActionCreators.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/redux/ActionCreators.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="234" column="13" lean-forward="false" selection-start-line="234" selection-start-column="13" selection-end-line="234" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="favorites.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/redux/favorites.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActionTypes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/redux/ActionTypes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/redux/users.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configureStore.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/redux/configureStore.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#68#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,36 +135,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.split</find>
-      <find>bookmar</find>
-      <find>loading</find>
-      <find>redirec</find>
-      <find>labelContainer</find>
-      <find>external</find>
-      <find>round</find>
-      <find>linkedInContainer</find>
-      <find>linkText</find>
-      <find>basic</find>
-      <find>shareDish</find>
-      <find>linkedin</find>
-      <find>setItem</find>
-      <find>getUser</find>
-      <find>async</find>
-      <find>setIte</find>
-      <find>Expo.Google</find>
-      <find>Login</find>
-      <find>_storeData</find>
-      <find>signedintoken</find>
-      <find>_store</find>
-      <find>signedIn</find>
-      <find>gmaillogin</find>
-      <find>access</find>
-      <find>console.log</find>
-      <find>signedinwith</find>
-      <find>refreshing</find>
-      <find>removeItem</find>
-      <find>signedInLinkedin</find>
       <find>emailAddress</find>
+      <find>ADD_FA</find>
+      <find>addFa</find>
+      <find>store_</find>
+      <find>dispatch</find>
+      <find>async</find>
+      <find>signIn</find>
+      <find>this.props.sign</find>
+      <find>removeIte</find>
+      <find>signedIn</find>
+      <find>loaded</find>
+      <find>gmailvalue</find>
+      <find>getUs</find>
+      <find>getUser</find>
+      <find>getU</find>
+      <find>_storeData</find>
+      <find>LOADI</find>
+      <find>refreshing</find>
+      <find>Loadin</find>
+      <find>expires_in</find>
+      <find>signedInLinkedin</find>
+      <find>access_token</find>
+      <find>selectedIndex</find>
+      <find>search</find>
+      <find>inProgressNetworkReq</find>
+      <find>count</find>
+      <find>page</find>
+      <find>data</find>
+      <find>height</find>
+      <find>setUri</find>
     </findStrings>
     <replaceStrings>
       <replace>Tabs</replace>
@@ -119,7 +184,6 @@
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/shared/leaders.js" />
-        <option value="$PROJECT_DIR$/redux/configureStore.js" />
         <option value="$PROJECT_DIR$/redux/comments.js" />
         <option value="$PROJECT_DIR$/components/ImageRenderer.js" />
         <option value="$PROJECT_DIR$/utils/LayoutUtil.js" />
@@ -151,12 +215,14 @@
         <option value="$PROJECT_DIR$/components/MainComponent.js" />
         <option value="$PROJECT_DIR$/components/ActivityindicatorComponent.js" />
         <option value="$PROJECT_DIR$/redux/dishes.js" />
-        <option value="$PROJECT_DIR$/redux/ActionTypes.js" />
-        <option value="$PROJECT_DIR$/redux/ActionCreators.js" />
         <option value="$PROJECT_DIR$/components/WebviewComponent.js" />
         <option value="$PROJECT_DIR$/components/HomeComponent.js" />
         <option value="$PROJECT_DIR$/components/NewsComponent.js" />
         <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/redux/ActionTypes.js" />
+        <option value="$PROJECT_DIR$/redux/configureStore.js" />
+        <option value="$PROJECT_DIR$/redux/users.js" />
+        <option value="$PROJECT_DIR$/redux/ActionCreators.js" />
         <option value="$PROJECT_DIR$/components/LeftbarComponent.js" />
       </list>
     </option>
@@ -218,11 +284,6 @@
             <path>
               <item name="NewsApp.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="NewsApp.io" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NewsApp.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NewsApp.io" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -243,6 +304,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/redux" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/components/partials" />
@@ -278,12 +340,12 @@
       <workItem from="1550046388429" duration="2893000" />
       <workItem from="1550482311172" duration="33244000" />
       <workItem from="1550763118007" duration="17000" />
-      <workItem from="1550802549901" duration="3608000" />
+      <workItem from="1550802549901" duration="7763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119569000" />
+    <option name="totallyTimeSpent" value="123724000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -320,33 +382,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/redux/ActionCreators.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2715">
-          <caret line="182" column="31" lean-forward="false" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/redux/ActionTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#215#260#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/TabComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -381,9 +416,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2010">
           <caret line="150" column="27" lean-forward="true" selection-start-line="150" selection-start-column="27" selection-end-line="150" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -587,22 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/redux/dishes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/redux/ActionTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/TabComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -654,14 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/redux/ActionCreators.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="182" column="31" lean-forward="false" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5">
@@ -672,23 +681,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="290" column="17" lean-forward="false" selection-start-line="290" selection-start-column="17" selection-end-line="290" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-446">
+        <state relative-caret-position="-497">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redux/dishes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redux/favorites.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redux/configureStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redux/ActionTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redux/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redux/ActionCreators.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="234" column="13" lean-forward="false" selection-start-line="234" selection-start-column="13" selection-end-line="234" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
