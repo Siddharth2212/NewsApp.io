@@ -15,7 +15,6 @@ const CLIENT_SECRET = 'pEwYCZvVrh4sVkwh';
 
 const mapStateToProps = state => {
     return {
-        dishes: state.dishes,
         userinfo: state.userinfo
     }
 }
@@ -34,6 +33,9 @@ class Tab extends Component {
     }
 
     componentDidMount(){
+        if(this.props.userinfo.isLoading){
+            this.props.authenticate('signout');
+        }
         this._retrieveData();
     }
 
@@ -94,7 +96,6 @@ class Tab extends Component {
                             this.props.navigation.navigate('Favorites')
                         } }}
                     clearIcon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: (search) => {
-                            this.props.fetchDishes(-1, 20, 'SEO');
                             this.props.navigation.navigate('Search', {searchString: 'SEO'})
                         }  }}
                     round={true}/>
