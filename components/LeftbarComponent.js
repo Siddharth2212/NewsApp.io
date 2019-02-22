@@ -4,17 +4,14 @@ import {
     View,
     Dimensions,
     Text,
-    Clipboard,
-    Button,
     Image,
-    ActivityIndicator,
-    StatusBar, AsyncStorage
+    ActivityIndicator, AsyncStorage, Platform
 } from 'react-native'
-import { Header, SearchBar, SocialIcon } from 'react-native-elements';
+import { Header, SearchBar, SocialIcon, Button, Icon } from 'react-native-elements';
 import { connect } from "react-redux";
 import {fetchDishes, setUri} from "../redux/ActionCreators";
 import LinkedInModal from 'react-native-linkedin'
-import {baseUrl} from "../shared/baseUrl";
+import {Google} from "expo";
 var { width, height } = Dimensions.get('window');// You can import from local files
 const CLIENT_ID = '81ubjdyk0k4ah7';
 const CLIENT_SECRET = 'pEwYCZvVrh4sVkwh';
@@ -63,6 +60,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
     },
+    header: {
+        fontSize: 25
+    },
+    image: {
+        marginTop: 15,
+        width: 150,
+        height: 150,
+        borderColor: "rgba(0,0,0,0.2)",
+        borderWidth: 3,
+        borderRadius: 150
+    }
 })
 
 const mapStateToProps = state => {
@@ -91,7 +99,11 @@ class Tab extends Component {
             access_token: undefined,
             expires_in: undefined,
             refreshing: false,
-            signedinwith: null
+            signedInLinkedin: false,
+            signedIn: false,
+            name: "",
+            email: "",
+            photoUrl: ""
         };
         this.loaded = false;
         // StatusBar.setHidden(true)
@@ -109,15 +121,16 @@ class Tab extends Component {
             const value = await AsyncStorage.getItem('signedintoken');
             if (value !== null) {
                 // We have data!!
-                console.log('retriving data');
-                console.log(value);
                 this.getUser({access_token: value});
             }
-            else{
-                console.log('NULLLLLL');
+
+            const gmailvalue = await AsyncStorage.getItem('gmaillogin');
+            if (gmailvalue !== null) {
+                // We have data!!
+                this.setState(JSON.parse(gmailvalue))
             }
+
         } catch (error) {
-            console.log("ERRORRRR");
             console.log(error);
             // Error retrieving data
         }
@@ -150,8 +163,6 @@ class Tab extends Component {
         })
         let payload = await response.json()
 
-        console.log('PAYLOGGG');
-
         if(payload.status && payload.status ==401){
             console.log('invalid access token');
             try {
@@ -163,7 +174,8 @@ class Tab extends Component {
         }
         else{
             console.log(payload);
-            this._storeData(access_token)
+            this._storeData('signedintoken', access_token)
+            this.setState({signedInLinkedin: true})
         }
 
         const userinfo = await fetch('https://www.newsapp.io/userdata?email='+payload.emailAddress+'');
@@ -183,9 +195,9 @@ class Tab extends Component {
         this.setState({ ...payload, refreshing: false })
     }
 
-    _storeData = async (token) => {
+    _storeData = async (key, token) => {
         try {
-            await AsyncStorage.setItem('signedintoken', token);
+            await AsyncStorage.setItem(key, token);
         } catch (error) {
             console.log('error saving data');
             console.log(error);
@@ -205,6 +217,43 @@ class Tab extends Component {
                 </View>
             </View>
         )
+    }
+
+    signIn = async () => {
+        try {
+            let result;
+            if(Platform.OS === 'android'){
+                result = await Google.logInAsync({
+                    androidClientId:
+                        "762764011407-500q22dk4v57g1q8t6uglf2um5290gnb.apps.googleusercontent.com",
+                    //iosClientId: YOUR_CLIENT_ID_HERE,  <-- if you use iOS
+                    scopes: ["profile", "email"]
+                })
+            }
+            else{
+                result = await Google.logInAsync({
+                    /*androidClientId:
+                        "762764011407-500q22dk4v57g1q8t6uglf2um5290gnb.apps.googleusercontent.com",*/
+                    iosClientId: "762764011407-500q22dk4v57g1q8t6uglf2um5290gnb.apps.googleusercontent.com",
+                    scopes: ["profile", "email"]
+                })
+            }
+
+            if (result.type === "success") {
+                let signinInfo = {
+                    signedIn: true,
+                    name: result.user.name,
+                    email: result.user.email,
+                    photoUrl: result.user.photoUrl
+                }
+                this.setState(signinInfo);
+                this._storeData('gmaillogin', JSON.stringify(signinInfo));
+            } else {
+                console.log("cancelled")
+            }
+        } catch (e) {
+            console.log("error", e)
+        }
     }
 
 
@@ -232,17 +281,14 @@ class Tab extends Component {
                     onChangeText={this.updateSearch}
                     placeholder="Type to search..."
                     icon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: () => {
-                            console.log('HELLOOOOO');
                             this.props.navigation.navigate('Favorites')
                         } }}
                     clearIcon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: (search) => {
-                            console.log('HELLOOOOO');
-                            console.log(this.state.search);
                             this.props.fetchDishes(-1, 20, 'SEO');
                             this.props.navigation.navigate('Search', {searchString: 'SEO'})
                         }  }}
                     round={true}/>
-                {!emailAddress &&
+                {!this.state.signedIn && !this.state.signedInLinkedin &&
                 !refreshing && (
                     <View style={styles.linkedInContainer}>
                         <LinkedInModal
@@ -261,12 +307,18 @@ class Tab extends Component {
                             type='linkedin'
                             onPress={() => this.modal.open()}
                         />
+                        <SocialIcon
+                            title='Sign in With Google'
+                            button
+                            type='google-plus-official'
+                            onPress={() => this.signIn()}
+                        />
                     </View>
                 )}
 
                 {refreshing && <ActivityIndicator size="large" />}
 
-                {emailAddress && (
+                {emailAddress && this.state.signedInLinkedin && (
                     <View style={styles.userContainer}>
                         <Image style={styles.picture} source={{ uri: pictureUrls.values[0] }} />
                         {this.renderItem('Email', emailAddress)}
@@ -277,8 +329,50 @@ class Tab extends Component {
                         {/*{this.renderItem('Headline', headline)}*/}
                         {this.renderItem('College name', college_name)}
                         {this.renderItem('Location', location.name)}
+                        <Button
+                            icon={
+                                <Icon
+                                    type="font-awesome"
+                                    name="sign-out"
+                                    size={15}
+                                    color="white"
+                                />
+                            }
+                            onPress={async () => {
+                                this.setState({signedInLinkedin : false});
+                                await AsyncStorage.removeItem('signedintoken');
+                            }}
+                            title="Sign-out"
+                        />
                     </View>
                 )}
+
+                <View style={styles.userContainer}>
+                    {this.state.signedIn ? (
+                        <View style={styles.userContainer}>
+                            <Image style={styles.picture} source={{ uri: this.state.photoUrl }} />
+                            {this.renderItem('Email', this.state.email)}
+                            {this.renderItem('Name', this.state.name)}
+                            <Button
+                                icon={
+                                    <Icon
+                                        type="font-awesome"
+                                        name="sign-out"
+                                        size={15}
+                                        color="white"
+                                    />
+                                }
+                                onPress={async () => {
+                                    this.setState({signedIn : false});
+                                    await AsyncStorage.removeItem('gmaillogin');
+                                }}
+                                title="Sign-out"
+                            />
+                        </View>
+                    ) : (
+                        <Text></Text>
+                    )}
+                </View>
             </View>
         )
     }
