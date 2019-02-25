@@ -173,7 +173,9 @@ class Tab extends Component {
                             clientID={CLIENT_ID}
                             clientSecret={CLIENT_SECRET}
                             redirectUri="https://xaviercarpentier.com"
-                            onSuccess={data => this.props.getUser(data)}
+                            onSuccess={data => {
+                                return this.props.getUser(data);
+                            }}
                             linkText={null}
                         />
                         <SocialIcon
@@ -182,12 +184,12 @@ class Tab extends Component {
                             type='linkedin'
                             onPress={() => this.modal.open()}
                         />
-                        <SocialIcon
+                        {/*<SocialIcon
                             title='Sign in With Google'
                             button
                             type='google-plus-official'
                             onPress={() => this.props.authenticate('signin')}
-                        />
+                        />*/}
                     </View>
                 )}
 

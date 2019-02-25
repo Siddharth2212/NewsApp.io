@@ -88,7 +88,7 @@ class Home extends Component {
                 ref="swiper"
                 index={1}>
                 <Leftbar swipe={(value) => this.jumpToSlide(value)} width={width} navigation={this.props.navigation} />
-                <News navigation={this.props.navigation} />
+                <News swipe={(value) => this.jumpToSlide(value)} navigation={this.props.navigation} />
                 <Browser swipe={(value) => this.jumpToSlide(value)} navigation={this.props.navigation} />
             </Swiper>
 
