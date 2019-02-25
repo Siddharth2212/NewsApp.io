@@ -175,10 +175,30 @@ export const postFavorite = (dishId, email)  => (dispatch) => {
         .catch(error => dispatch(favoritesFailed(error.message)));
 };
 
-export const deleteFavorite = (dishId) => ({
-    type: ActionTypes.DELETE_FAVORITE,
-    payload: dishId
-});
+
+export const deleteFavorite = (dishId, email)  => (dispatch) => {
+    dispatch(favoritesLoading());
+
+    return fetch(baseUrl + 'removefavorite?newsid='+dishId+'&userid='+email)
+        .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => {
+                var errmess = new Error(error.message);
+                throw errmess;
+            })
+        .then(response => {
+            return response.json()
+        })
+        .then(leaders => dispatch(fetchFavorites(email)))
+        .catch(error => dispatch(favoritesFailed(error.message)));
+};
 
 export const setUri = (uri) => ({
     type: ActionTypes.SET_URI,

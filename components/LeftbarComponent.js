@@ -5,11 +5,11 @@ import {
     Dimensions,
     Text,
     Image,
-    ActivityIndicator, AsyncStorage, Platform
+    ActivityIndicator, AsyncStorage, Platform, Alert
 } from 'react-native'
 import { Header, SearchBar, SocialIcon, Button, Icon } from 'react-native-elements';
 import { connect } from "react-redux";
-import {authenticate, fetchDishes, getUser, setUri, signIn} from "../redux/ActionCreators";
+import {authenticate, fetchDishes, fetchFavorites, getUser, setUri, signIn} from "../redux/ActionCreators";
 import LinkedInModal from 'react-native-linkedin'
 import {Google} from "expo";
 var { width, height } = Dimensions.get('window');// You can import from local files
@@ -84,6 +84,7 @@ const mapDispatchToProps = dispatch => ({
     setUri: (uri) => dispatch(setUri(uri)),
     authenticate: (actiontype) => dispatch(authenticate(actiontype)),
     getUser: (data) => dispatch(getUser(data)),
+    fetchFavorites: (email) => dispatch(fetchFavorites(email)),
     fetchDishes: (category, size, searchString) => dispatch(fetchDishes(category, size, searchString))
 })
 
@@ -163,6 +164,36 @@ class Tab extends Component {
                             this.props.navigation.navigate('Search', {searchString: search})
                         }  }}
                     round={true}/>
+                <Button
+                    title="Tap to view Favorites"
+                    type="outline"
+                    onPress={() => {
+                        console.log('hello');
+                        if((this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) || (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn)){
+                            console.log('logged in');
+                            (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn ? this.props.fetchFavorites(this.props.userinfo.userinfo.email):  this.props.fetchFavorites(this.props.userinfo.userinfo.emailAddress))
+                            this.props.navigation.navigate('Favorites')
+                        }
+                        else{
+                            Alert.alert(
+                                'You are Not Logged in',
+                                'Login to Save Favorites',
+                                [
+                                    {
+                                        text: 'Login',
+                                        onPress: () => this.modal.open()
+                                    },
+                                    {
+                                        text: 'Cancel',
+                                        onPress: () => console.log('Not logged in'),
+                                        style: ' cancel'
+                                    }
+                                ],
+                                { cancelable: false }
+                            );
+                        }
+                    }}
+                />
                 {!(this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn) && !(this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) &&
                 !this.props.userinfo.isLoading && (
                     <View style={styles.linkedInContainer}>

@@ -11,12 +11,13 @@ import * as Animatable from 'react-native-animatable';
 
 const mapStateToProps = state => {
     return {
-        favorites: state.favorites
+        favorites: state.favorites,
+        userinfo: state.userinfo
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    deleteFavorite: (dishId) => dispatch(deleteFavorite(dishId)),
+    deleteFavorite: (dishId, email) => dispatch(deleteFavorite(dishId, email)),
     fetchFavorites: (email) => dispatch(fetchFavorites(email))
 })
 
@@ -50,7 +51,9 @@ class Favorites extends Component {
                                 },
                                 {
                                     text: 'OK',
-                                    onPress: () => this.props.deleteFavorite(item.newsid)
+                                    onPress: () => (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn ?
+                                        this.props.deleteFavorite(item.newsid, this.props.userinfo.userinfo.email):
+                                        this.props.deleteFavorite(item.newsid, this.props.userinfo.userinfo.emailAddress))
                                 }
                             ],
                             { cancelable: false }

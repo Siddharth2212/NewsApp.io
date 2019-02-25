@@ -208,36 +208,6 @@ const HomeNavigator = createStackNavigator({
     }
 );
 
-const FavoritesNavigator = createStackNavigator({
-        Favorites: { screen: Favorites,
-            navigationOptions: ({ navigation }) => ({
-                headerLeft: <Icon name="menu" size={24}
-                                  color= 'white'
-                                  onPress={ () => navigation.toggleDrawer() } />,
-                headerStyle: {
-                    backgroundColor: "#2196f3"
-                },
-                headerTintColor: '#fff',
-                headerTitleStyle: {
-                    color: "#fff"
-                }
-            })
-        },
-        Dishdetail: { screen: Dishdetail,
-            navigationOptions: {
-                headerStyle: {
-                    backgroundColor: "#2196f3"
-                },
-                headerTintColor: '#fff',
-                headerTitleStyle: {
-                    color: "#fff"
-                }
-            }}
-    },
-    {
-        initialRouteName: 'Favorites'
-    }
-);
 
 const NewsNavigator = createStackNavigator({
         Home: { screen: News,
@@ -263,6 +233,17 @@ const NewsNavigator = createStackNavigator({
                 }
             }},
         Search: { screen: SearchComponent,
+            navigationOptions: {
+                headerStyle: {
+                    backgroundColor: "#2196f3"
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: "#fff",
+                    fontSize: 14
+                }
+            }},
+        Favorites: { screen: Favorites,
             navigationOptions: {
                 headerStyle: {
                     backgroundColor: "#2196f3"
@@ -340,21 +321,6 @@ const MainNavigator = createDrawerNavigator({
                         color={tintColor}
                     />
                 )
-            }
-        },
-    Favorites:
-        { screen: FavoritesNavigator,
-            navigationOptions: {
-                title: 'My Favorites',
-                drawerLabel: 'My Favorites',
-                drawerIcon: ({ tintColor, focused }) => (
-                    <Icon
-                        name='heart'
-                        type='font-awesome'
-                        size={24}
-                        iconStyle={{ color: tintColor }}
-                    />
-                ),
             }
         }
 }, {
