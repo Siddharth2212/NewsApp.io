@@ -10,7 +10,7 @@ import {TIMESINCE} from "../utils/timesince";
 import {connect} from "react-redux";
 import {fetchFavorites, postFavorite, setUri} from "../redux/ActionCreators";
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-import {WebBrowser} from "expo";
+import {Asset, AppLoading} from "expo";
 
 let catArray = ['home', 'search-engine-optimization', 'search-engine-marketing', 'analytics', 'content-marketing', 'mobile', 'social-media-marketing', 'google-adwords', 'facebook', 'india-jobs', 'international-jobs', 'freelancing-jobs', 'artificial-intelligence', 'entrepreneurship', 'digital-marketing-tips', 'post', 'snapchat', 'instagram', 'twitter', 'whatsapp', 'youtube', 'cyber-security', 'technology-tips']
 
@@ -291,6 +291,14 @@ class Tab extends Component {
             return(
                 <Loading />
             );
+            /*return (
+                <AppLoading
+                    startAsync={this._cacheResourcesAsync}
+                    onFinish={() => this.setState({ isReady: true })}
+                    onError={console.warn}
+                />
+            );*/
+
         }
         else{
             return (
