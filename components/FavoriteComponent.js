@@ -11,7 +11,7 @@ import * as Animatable from 'react-native-animatable';
 
 const mapStateToProps = state => {
     return {
-        favorites: state.favorites
+        dishes: state.dishes
     }
 }
 
@@ -65,7 +65,6 @@ class Favorites extends Component {
                         <ListItem
                             key={index}
                             title={item.approved_title}
-                            subtitle={item.approved_description}
                             hideChevron={true}
                             onPress={() => navigate('Dishdetail', { dish: item })}
                             leftAvatar={{ source: {uri: item.approved_image}}}
@@ -74,22 +73,22 @@ class Favorites extends Component {
             );
         };
 
-        if (this.props.favorites.isLoading) {
+        if (this.props.dishes.isLoading) {
             return(
                 <Loading />
             );
         }
-        else if (this.props.favorites.errMess) {
+        else if (this.props.dishes.errMess) {
             return(
                 <View>
-                    <Text>{this.props.favorites.errMess}</Text>
+                    <Text>{this.props.dishes.errMess}</Text>
                 </View>
             );
         }
         else {
             return (
                 <FlatList
-                    data={this.props.favorites.favorites}
+                    data={this.props.dishes.dishes}
                     renderItem={renderMenuItem}
                     keyExtractor={item => item.newsid.toString()}
                 />

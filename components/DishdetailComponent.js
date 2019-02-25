@@ -88,7 +88,7 @@ function RenderDish(props) {
                     </View>
                     <View style={{ flexDirection: "row", alignItems: 'center',
                         justifyContent: 'center', }}>
-                        <Icon
+                        {/*<Icon
                             raised
                             reverse
                             name={ props.favorite ? 'heart' : 'heart-o'}
@@ -103,7 +103,7 @@ function RenderDish(props) {
                             type='font-awesome'
                             color='#512DA8'
                             onPress={() => props.toggleModal()}
-                        />
+                        />*/}
                         <Icon
                             raised
                             reverse
@@ -227,7 +227,7 @@ class Dishdetail extends Component{
                             _handlePressButtonAsync={() => this._handlePressButtonAsync(dish.link)}
                             onPress={() => this.markFavorite(dishId)}
                 />
-                <RenderComments comments={this.props.comments.comments.filter((comment) => comment.dishId === dishId)} />
+                {/*<RenderComments comments={this.props.comments.comments.filter((comment) => comment.dishId === dishId)} />*/}
                 <Modal animationType = {"slide"} transparent = {false}
                        visible = {this.state.showModal}
                        onDismiss = {() => this.toggleModal() }

@@ -248,10 +248,20 @@ const NewsNavigator = createStackNavigator({
                 headerStyle: {
                     backgroundColor: "#2196f3"
                 },
-                headerVisible: false,
+                // headerVisible: false,
             })
         },
         Dishdetail: { screen: Dishdetail,
+            navigationOptions: {
+                headerStyle: {
+                    backgroundColor: "#2196f3"
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: "#fff"
+                }
+            }},
+        Favorites: { screen: Favorites,
             navigationOptions: {
                 headerStyle: {
                     backgroundColor: "#2196f3"

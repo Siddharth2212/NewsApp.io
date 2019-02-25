@@ -158,9 +158,9 @@ class Tab extends Component {
                     icon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: () => {
                             this.props.navigation.navigate('Favorites')
                         } }}
-                    clearIcon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: (search) => {
-                            this.props.fetchDishes(-1, 20, 'SEO');
-                            this.props.navigation.navigate('Search', {searchString: 'SEO'})
+                    clearIcon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: (search2) => {
+                            this.props.fetchDishes(-1, 20, search);
+                            this.props.navigation.navigate('Favorites', {searchString: search})
                         }  }}
                     round={true}/>
                 {!(this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn) && !(this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) &&
