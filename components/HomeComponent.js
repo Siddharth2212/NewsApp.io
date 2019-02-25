@@ -44,6 +44,10 @@ class Home extends Component {
         };
     }
 
+    static navigationOptions = {
+        header: null
+    };
+
     viewStyle() {
         return {
             flex: 1,

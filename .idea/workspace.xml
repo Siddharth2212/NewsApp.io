@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dbc008b-947a-40b3-8053-da6ed4801256" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/components/SearchComponent.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
       <change beforePath="$PROJECT_DIR$/components/DishdetailComponent.js" afterPath="$PROJECT_DIR$/components/DishdetailComponent.js" />
       <change beforePath="$PROJECT_DIR$/components/FavoriteComponent.js" afterPath="$PROJECT_DIR$/components/FavoriteComponent.js" />
+      <change beforePath="$PROJECT_DIR$/components/HomeComponent.js" afterPath="$PROJECT_DIR$/components/HomeComponent.js" />
       <change beforePath="$PROJECT_DIR$/components/LeftbarComponent.js" afterPath="$PROJECT_DIR$/components/LeftbarComponent.js" />
       <change beforePath="$PROJECT_DIR$/components/MainComponent.js" afterPath="$PROJECT_DIR$/components/MainComponent.js" />
-      <change beforePath="$PROJECT_DIR$/redux/ActionCreators.js" afterPath="$PROJECT_DIR$/redux/ActionCreators.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,18 +25,30 @@
       <file leaf-file-name="HomeComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/HomeComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="21" />
+            <state relative-caret-position="465">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LeftbarComponent.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchComponent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/SearchComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="33" column="75" lean-forward="false" selection-start-line="33" selection-start-column="75" selection-end-line="33" selection-end-column="75" />
+              <folding>
+                <element signature="e#1264#2261#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LeftbarComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="376">
-              <caret line="162" column="93" lean-forward="false" selection-start-line="162" selection-start-column="93" selection-end-line="162" selection-end-column="93" />
+              <caret line="162" column="66" lean-forward="false" selection-start-line="162" selection-start-column="66" selection-end-line="162" selection-end-column="66" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -44,22 +56,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MainComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/MainComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="251" column="14" lean-forward="true" selection-start-line="251" selection-start-column="14" selection-end-line="251" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="424">
+              <caret line="272" column="32" lean-forward="false" selection-start-line="272" selection-start-column="32" selection-end-line="272" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,8 +71,8 @@
       <file leaf-file-name="FavoriteComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/FavoriteComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+            <state relative-caret-position="645">
+              <caret line="67" column="51" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -77,22 +81,9 @@
       <file leaf-file-name="DishdetailComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/DishdetailComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="189" column="18" lean-forward="false" selection-start-line="189" selection-start-column="11" selection-end-line="189" selection-end-column="18" />
+            <state relative-caret-position="165">
+              <caret line="191" column="6" lean-forward="true" selection-start-line="191" selection-start-column="6" selection-end-line="191" selection-end-column="6" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" column="40" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-                <element signature="e#315#356#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -119,11 +110,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TabComponent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/TabComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="NewsComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="35" />
+              <caret line="173" column="4" lean-forward="true" selection-start-line="173" selection-start-column="4" selection-end-line="175" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -133,10 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gmailvalue</find>
-      <find>getUs</find>
-      <find>getUser</find>
-      <find>getU</find>
       <find>_storeData</find>
       <find>LOADI</find>
       <find>refreshing</find>
@@ -155,14 +152,18 @@
       <find>fetch</find>
       <find>dish</find>
       <find>Loadin</find>
-      <find>navigatio</find>
       <find>Lef</find>
       <find>LEFT</find>
       <find>RenderComments</find>
       <find>fetchDi</find>
-      <find>Home</find>
       <find>navigat</find>
       <find>navigation</find>
+      <find>longap</find>
+      <find>header</find>
+      <find>navigatio</find>
+      <find>Home</find>
+      <find>naviga</find>
+      <find>props.navi</find>
     </findStrings>
     <replaceStrings>
       <replace>Tabs</replace>
@@ -203,7 +204,6 @@
         <option value="$PROJECT_DIR$/components/Home2Component.js" />
         <option value="$PROJECT_DIR$/components/MylistitemComponent.js" />
         <option value="$PROJECT_DIR$/components/LoginComponent.js" />
-        <option value="$PROJECT_DIR$/components/SearchComponent.js" />
         <option value="$PROJECT_DIR$/components/partials/NewsbrowserComponent.js" />
         <option value="$PROJECT_DIR$/components/partials/ListitemComponent.js" />
         <option value="$PROJECT_DIR$/components/partials/LeftbarComponent.js" />
@@ -211,18 +211,19 @@
         <option value="$PROJECT_DIR$/components/ActivityindicatorComponent.js" />
         <option value="$PROJECT_DIR$/redux/dishes.js" />
         <option value="$PROJECT_DIR$/components/WebviewComponent.js" />
-        <option value="$PROJECT_DIR$/components/HomeComponent.js" />
-        <option value="$PROJECT_DIR$/components/NewsComponent.js" />
         <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/redux/ActionTypes.js" />
         <option value="$PROJECT_DIR$/redux/configureStore.js" />
         <option value="$PROJECT_DIR$/redux/users.js" />
         <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/components/DishdetailComponent.js" />
-        <option value="$PROJECT_DIR$/components/MainComponent.js" />
         <option value="$PROJECT_DIR$/redux/ActionCreators.js" />
-        <option value="$PROJECT_DIR$/components/FavoriteComponent.js" />
+        <option value="$PROJECT_DIR$/components/DishdetailComponent.js" />
+        <option value="$PROJECT_DIR$/components/NewsComponent.js" />
         <option value="$PROJECT_DIR$/components/LeftbarComponent.js" />
+        <option value="$PROJECT_DIR$/components/FavoriteComponent.js" />
+        <option value="$PROJECT_DIR$/components/MainComponent.js" />
+        <option value="$PROJECT_DIR$/components/HomeComponent.js" />
+        <option value="$PROJECT_DIR$/components/SearchComponent.js" />
       </list>
     </option>
   </component>
@@ -308,9 +309,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/redux" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/components/partials" />
       <recent name="$PROJECT_DIR$/components/images" />
     </key>
@@ -346,12 +347,12 @@
       <workItem from="1550763118007" duration="17000" />
       <workItem from="1550802549901" duration="9883000" />
       <workItem from="1550914543225" duration="8000" />
-      <workItem from="1551084107760" duration="1259000" />
+      <workItem from="1551084107760" duration="3430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127111000" />
+    <option name="totallyTimeSpent" value="129282000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -532,7 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/SearchComponent.js" />
     <entry file="file://$PROJECT_DIR$/components/partials/NewsbrowserComponent.js" />
     <entry file="file://$PROJECT_DIR$/components/partials/LeftbarComponent.js" />
     <entry file="file://$PROJECT_DIR$/components/partials/ListitemComponent.js" />
@@ -569,13 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/TabComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -669,22 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/HomeComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/redux/ActionCreators.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -695,26 +672,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/MainComponent.js">
+    <entry file="file://$PROJECT_DIR$/components/TabComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="251" column="14" lean-forward="true" selection-start-line="251" selection-start-column="14" selection-end-line="251" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/DishdetailComponent.js">
+    <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="189" column="18" lean-forward="false" selection-start-line="189" selection-start-column="11" selection-end-line="189" selection-end-column="18" />
+          <caret line="173" column="4" lean-forward="true" selection-start-line="173" selection-start-column="4" selection-end-line="175" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/FavoriteComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        <state relative-caret-position="645">
+          <caret line="67" column="51" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -722,9 +699,45 @@
     <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
-          <caret line="162" column="93" lean-forward="false" selection-start-line="162" selection-start-column="93" selection-end-line="162" selection-end-column="93" />
+          <caret line="162" column="66" lean-forward="false" selection-start-line="162" selection-start-column="66" selection-end-line="162" selection-end-column="66" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/MainComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="272" column="32" lean-forward="false" selection-start-line="272" selection-start-column="32" selection-end-line="272" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/HomeComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/DishdetailComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="191" column="6" lean-forward="true" selection-start-line="191" selection-start-column="6" selection-end-line="191" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/SearchComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="33" column="75" lean-forward="false" selection-start-line="33" selection-start-column="75" selection-end-line="33" selection-end-column="75" />
+          <folding>
+            <element signature="e#1264#2261#0" expanded="false" />
           </folding>
         </state>
       </provider>

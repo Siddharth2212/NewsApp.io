@@ -8,6 +8,7 @@ import Dishdetail from "./DishdetailComponent";
 import Tabs from "./TabsComponent";
 import News from "./HomeComponent";
 import { DrawerItems, SafeAreaView, createDrawerNavigator, createAppContainer, createStackNavigator, createMaterialTopTabNavigator} from 'react-navigation';
+import SearchComponent from "./SearchComponent";
 
 
 const CustomDrawerContentComponent = (props) => (
@@ -248,7 +249,7 @@ const NewsNavigator = createStackNavigator({
                 headerStyle: {
                     backgroundColor: "#2196f3"
                 },
-                // headerVisible: false,
+                headerVisible: false,
             })
         },
         Dishdetail: { screen: Dishdetail,
@@ -261,20 +262,20 @@ const NewsNavigator = createStackNavigator({
                     color: "#fff"
                 }
             }},
-        Favorites: { screen: Favorites,
+        Search: { screen: SearchComponent,
             navigationOptions: {
                 headerStyle: {
                     backgroundColor: "#2196f3"
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
-                    color: "#fff"
+                    color: "#fff",
+                    fontSize: 14
                 }
             }}
     },
     {
-        initialRouteName: 'Home',
-        headerMode: 'none',
+        initialRouteName: 'Home'
     }
 );
 

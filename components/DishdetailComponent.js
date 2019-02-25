@@ -72,7 +72,7 @@ function RenderDish(props) {
                         <Text style={{color: "grey"}}>{`${TIMESINCE(dish.date)} ago by ${newsLink(dish)}`}</Text>
                     </View>
                     <ScrollView style={{margin: 5}}>
-                        <HTML html={dish.longapproved_description} imagesMaxWidth={Dimensions.get('window').width} />
+                        <HTML html={(dish.longapproved_description? dish.longapproved_description : dish.approved_description)} imagesMaxWidth={Dimensions.get('window').width} />
                     </ScrollView>
                     <View style={{ flexDirection: "row",
                         alignItems: 'center',

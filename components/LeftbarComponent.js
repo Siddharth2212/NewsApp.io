@@ -160,7 +160,7 @@ class Tab extends Component {
                         } }}
                     clearIcon = {{type: 'font-awesome', color: '#86939e', name: 'search', onPress: (search2) => {
                             this.props.fetchDishes(-1, 20, search);
-                            this.props.navigation.navigate('Favorites', {searchString: search})
+                            this.props.navigation.navigate('Search', {searchString: search})
                         }  }}
                     round={true}/>
                 {!(this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn) && !(this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) &&
