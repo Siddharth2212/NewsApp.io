@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
-    Dimensions,
     Text,
     Image,
     ActivityIndicator, AsyncStorage, Platform, Alert
@@ -11,8 +10,6 @@ import { Header, SearchBar, SocialIcon, Button, Icon } from 'react-native-elemen
 import { connect } from "react-redux";
 import {authenticate, fetchDishes, fetchFavorites, getUser, setUri, signIn} from "../redux/ActionCreators";
 import LinkedInModal from 'react-native-linkedin'
-import {Google} from "expo";
-var { width, height } = Dimensions.get('window');// You can import from local files
 const CLIENT_ID = '81ubjdyk0k4ah7';
 const CLIENT_SECRET = 'pEwYCZvVrh4sVkwh';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Dimensions, ActivityIndicator, WebView, StyleSheet, Platform, Linking } from 'react-native';
+import { View, Dimensions, ActivityIndicator, WebView, StyleSheet } from 'react-native';
 var {width, height} = Dimensions.get('window');// You can import from local files
 import {Header} from 'react-native-elements';
 import {EXTRACTHOSTNAME} from "../utils/extracthostname";

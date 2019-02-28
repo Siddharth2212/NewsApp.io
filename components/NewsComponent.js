@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import {Button, View, Dimensions, FlatList, ActivityIndicator, Share, Alert} from 'react-native';
+import { View, Dimensions, FlatList, ActivityIndicator, Share, Alert} from 'react-native';
 var {width, height} = Dimensions.get('window');// You can import from local files
 import { Loading } from './LoadingComponent';
-import { Card, Icon, Button as Alias, Image, Text} from 'react-native-elements';
+import { Icon, Button as Alias, Image, Text} from 'react-native-elements';
 import {DataCall} from "../utils/DataCall";
 import {EXTRACTHOSTNAME} from "../utils/extracthostname";
 import {GETHOSTNAME} from "../utils/gethostname";
 import {TIMESINCE} from "../utils/timesince";
 import {connect} from "react-redux";
 import {fetchFavorites, postFavorite, setUri} from "../redux/ActionCreators";
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-import {Asset, AppLoading} from "expo";
 
 let catArray = ['home', 'search-engine-optimization', 'search-engine-marketing', 'analytics', 'content-marketing', 'mobile', 'social-media-marketing', 'google-adwords', 'facebook', 'india-jobs', 'international-jobs', 'freelancing-jobs', 'artificial-intelligence', 'entrepreneurship', 'digital-marketing-tips', 'post', 'snapchat', 'instagram', 'twitter', 'whatsapp', 'youtube', 'cyber-security', 'technology-tips']
 
@@ -30,10 +28,6 @@ const mapDispatchToProps = dispatch => ({
 
 // or any pure javascript modules available in npm
 class MyListItem extends React.PureComponent {
-    onSwipeLeft(gestureState) {
-        console.log('You swiped left')
-    }
-
     async shareDish(title, message, url) {
         try{
             const result = await Share.share({
@@ -76,93 +70,54 @@ class MyListItem extends React.PureComponent {
             directionalOffsetThreshold: 10
         };
         return (
-            <GestureRecognizer
-                onSwipeLeft={(state) => this.onSwipeLeft(state)}
-                config={config}
-                style={{
-                    flex: 1,
-                    backgroundColor: 'white'
-                }}
-            >
-                <View style={{ width: this.props.width, height: this.props.height}}  key={item.newsid}>
-                    <Image
-                        source={{ uri: item.approved_image }}
-                        style={{ height: 250 }}
-                        PlaceholderContent={<ActivityIndicator />}
-                    />
-                    <View style={{ flexDirection: "row",
-                        alignItems: 'center',
-                        margin: 5,
-                        justifyContent: 'flex-start'}}>
-                        <Text h4>{item.approved_title}</Text>
-                    </View>
-                    <View style={{ flexDirection: "row", alignItems: 'center',
-                        margin:5,
-                        justifyContent: 'flex-start', }}>
-                        <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago`}</Text>
-                        <Icon
-                            raised
-                            reverse
-                            name={ this.props.favorite && (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) || (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn) ? 'bookmark' : 'bookmark-o'}
-                            type='font-awesome'
-                            color='#f50'
-                            size={14}
-                            onPress={() => {
-                                console.log('hello');
-                                if((this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) || (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn)){
-                                    console.log('logged in');
-                                    (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn ? this.markFavorite(item.newsid, this.props.userinfo.userinfo.email):  this.markFavorite(item.newsid, this.props.userinfo.userinfo.emailAddress))
-                                }
-                                else{
-                                    Alert.alert(
-                                        'You are Not Logged in',
-                                        'Login to Save Favorites',
-                                        [
-                                            {
-                                                text: 'Login',
-                                                onPress: () => this.props.swipe(0)
-                                            },
-                                            {
-                                                text: 'Cancel',
-                                                onPress: () => console.log('Not logged in'),
-                                                style: ' cancel'
-                                            }
-                                        ],
-                                        { cancelable: false }
-                                    );
-                                }
-                            }}
-                        />
-                        <Icon
-                            raised
-                            reverse
-                            name='share'
-                            type='font-awesome'
-                            color='#51D2A8'
-                            size={14}
-                            onPress={() => this.shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
-                    </View>
-                    {/*<View style={{ flexDirection: "row",
+            <View style={{ width: this.props.width, height: this.props.height}}  key={item.newsid}>
+                <Image
+                    source={{ uri: item.approved_image }}
+                    style={{ height: 250 }}
+                    PlaceholderContent={<ActivityIndicator />}
+                />
+                <View style={{ flexDirection: "row",
                     alignItems: 'center',
                     margin: 5,
                     justifyContent: 'flex-start'}}>
-                    <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago`}</Text>
-                </View>*/}
-                    <View style={{ flexDirection: "row",
-                        alignItems: 'center',
-                        margin: 5,
-                        justifyContent: 'flex-start'}}>
-                        <Text>{item.approved_description}</Text>
-                    </View>
-                    {/*<View style={{ flexDirection: "row", alignItems: 'center',
+                    <Text h4>{item.approved_title}</Text>
+                </View>
+                <View style={{ flexDirection: "row", alignItems: 'center',
+                    margin:5,
                     justifyContent: 'flex-start', }}>
+                    <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago`}</Text>
                     <Icon
                         raised
                         reverse
-                        name={ false ? 'bookmark' : 'bookmark-o'}
+                        name={ this.props.favorite && (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) || (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn) ? 'bookmark' : 'bookmark-o'}
                         type='font-awesome'
                         color='#f50'
-                        onPress={() => console.log('Already favorite')}
+                        size={14}
+                        onPress={() => {
+                            console.log('hello');
+                            if((this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedInLinkedin) || (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn)){
+                                console.log('logged in');
+                                (this.props.userinfo && this.props.userinfo.userinfo && this.props.userinfo.userinfo.signedIn ? this.markFavorite(item.newsid, this.props.userinfo.userinfo.email):  this.markFavorite(item.newsid, this.props.userinfo.userinfo.emailAddress))
+                            }
+                            else{
+                                Alert.alert(
+                                    'You are Not Logged in',
+                                    'Login to Save Favorites',
+                                    [
+                                        {
+                                            text: 'Login',
+                                            onPress: () => this.props.swipe(0)
+                                        },
+                                        {
+                                            text: 'Cancel',
+                                            onPress: () => console.log('Not logged in'),
+                                            style: ' cancel'
+                                        }
+                                    ],
+                                    { cancelable: false }
+                                );
+                            }
+                        }}
                     />
                     <Icon
                         raised
@@ -170,22 +125,52 @@ class MyListItem extends React.PureComponent {
                         name='share'
                         type='font-awesome'
                         color='#51D2A8'
-                        onPress={() => shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
-                </View>*/}
-                    <View style={{ flexDirection: "row",
-                        alignItems: 'center',
-                        justifyContent: 'flex-start'}}>
-                        <Alias
-                            title={`Swipe left to read more at ${newsLink(item)}`}
-                            type="clear"
-                            titleStyle={{
-                                color: "grey",
-                                fontSize: 12
-                            }}
-                        />
-                    </View>
+                        size={14}
+                        onPress={() => this.shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
                 </View>
-            </GestureRecognizer>
+                {/*<View style={{ flexDirection: "row",
+                alignItems: 'center',
+                margin: 5,
+                justifyContent: 'flex-start'}}>
+                <Text style={{color: "grey"}}>{`${TIMESINCE(item.date)} ago`}</Text>
+            </View>*/}
+                <View style={{ flexDirection: "row",
+                    alignItems: 'center',
+                    margin: 5,
+                    justifyContent: 'flex-start'}}>
+                    <Text>{item.approved_description}</Text>
+                </View>
+                {/*<View style={{ flexDirection: "row", alignItems: 'center',
+                justifyContent: 'flex-start', }}>
+                <Icon
+                    raised
+                    reverse
+                    name={ false ? 'bookmark' : 'bookmark-o'}
+                    type='font-awesome'
+                    color='#f50'
+                    onPress={() => console.log('Already favorite')}
+                />
+                <Icon
+                    raised
+                    reverse
+                    name='share'
+                    type='font-awesome'
+                    color='#51D2A8'
+                    onPress={() => shareDish(item.approved_title, item.approved_description, `https://www.newsapp.io/${catArray[parseInt(item.category)]}/${item.newsid}`)} />
+            </View>*/}
+                <View style={{ flexDirection: "row",
+                    alignItems: 'center',
+                    justifyContent: 'flex-start'}}>
+                    <Alias
+                        title={`Swipe left to read more at ${newsLink(item)}`}
+                        type="clear"
+                        titleStyle={{
+                            color: "grey",
+                            fontSize: 12
+                        }}
+                    />
+                </View>
+            </View>
         )
     }
 }

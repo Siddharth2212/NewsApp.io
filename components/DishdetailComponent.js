@@ -1,30 +1,25 @@
 import React, {Component} from 'react';
-import { View, ScrollView, StyleSheet, FlatList, Modal, ActivityIndicator, Alert, PanResponder, Share, Dimensions, Button } from 'react-native';
+import { View, ScrollView, StyleSheet, FlatList, Modal, ActivityIndicator, Share, Dimensions, Button } from 'react-native';
 import { Card, Icon, Rating, Input, Button as Alias, Image, Text } from 'react-native-elements';
 import { connect } from 'react-redux';
-import {fetchComments, postComment, postFavorite} from "../redux/ActionCreators";
-import * as Animatable from 'react-native-animatable';
+import {postFavorite} from "../redux/ActionCreators";
 import HTML from 'react-native-render-html';
-import { Constants, WebBrowser } from 'expo';
+import {  WebBrowser } from 'expo';
 import {EXTRACTHOSTNAME} from "../utils/extracthostname";
 import {GETHOSTNAME} from "../utils/gethostname";
 import {TIMESINCE} from "../utils/timesince";
-var {width, height} = Dimensions.get('window');// You can import from local files
 
 let catArray = ['home', 'search-engine-optimization', 'search-engine-marketing', 'analytics', 'content-marketing', 'mobile', 'social-media-marketing', 'google-adwords', 'facebook', 'india-jobs', 'international-jobs', 'freelancing-jobs', 'artificial-intelligence', 'entrepreneurship', 'digital-marketing-tips', 'post', 'snapchat', 'instagram', 'twitter', 'whatsapp', 'youtube', 'cyber-security', 'technology-tips']
 
 const mapStateToProps = state => {
     return {
         dishes: state.dishes,
-        comments: state.comments,
         favorites: state.favorites
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchComments: () => dispatch(fetchComments()),
-    postFavorite: (dishId, email) => dispatch(postFavorite(dishId, email)),
-    postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment))
+    postFavorite: (dishId, email) => dispatch(postFavorite(dishId, email))
 })
 
 
@@ -122,53 +117,6 @@ function RenderDish(props) {
     }
 }
 
-function RenderComments(props) {
-
-    const comments = props.comments;
-
-    const renderCommentItem = ({item, index}) => {
-
-        return (
-            <View key={index} style={{margin: 10}}>
-                <Text style={{fontSize: 14}}>{dish.comment}</Text>
-                <Rating
-                    showRating={false}
-                    startingValue={dish.rating}
-                    imageSize={20}
-                    style={{ flexDirection: 'row', display: 'flex', flex: 1, justifyContent: 'flex-start', paddingVertical: 10 }}
-                />
-                {/*<Text style={{fontSize: 12}}>{dish.rating} Stars</Text>*/}
-                <Text style={{fontSize: 12}}>{'-- ' + dish.author + ', ' + dish.date} </Text>
-            </View>
-        );
-    };
-
-    if(comments.length>0){
-        return (
-            <Animatable.View animation="fadeInUp" duration={2000} delay={1000}>
-                <Card title='Comments' >
-                    <FlatList
-                        data={comments}
-                        renderItem={renderCommentItem}
-                        keyExtractor={item => dish.id.toString()}
-                    />
-                </Card>
-            </Animatable.View>
-        );
-    }
-    else{
-        return(
-            <Animatable.View animation="fadeInUp" duration={2000} delay={1000}>
-                <Card title='Comments' >
-                    <Text style={{textAlign:'center'}}>
-                        Be the first one to comment.
-                    </Text>
-                </Card>
-            </Animatable.View>
-        )
-    }
-}
-
 class Dishdetail extends Component{
     constructor(props){
         super(props);
@@ -191,28 +139,12 @@ class Dishdetail extends Component{
         title : 'News Details',
     };
 
-    handleComment() {
-        this.toggleModal();
-        let dishId = this.props.navigation.getParam('dishId', '');
-        this.addComment(dishId, this.state.rating, this.state.author, this.state.comment)
-    }
-
     toggleModal() {
         this.setState({showModal: !this.state.showModal});
     }
 
     markFavorite(dishId) {
         this.props.postFavorite(dishId, "siddharthsogani1@gmail.com");
-    }
-
-    addComment(dishId, rating, author, comment) {
-        this.props.postComment(dishId, rating, "siddharthsogani1@gmail.com", comment);
-    }
-
-    componentDidMount(){
-        const dish = this.props.navigation.getParam('dish', '');
-        let dishId = dish.newsid;
-        this.props.fetchComments(dishId);
     }
 
     render(){
@@ -227,7 +159,6 @@ class Dishdetail extends Component{
                             _handlePressButtonAsync={() => this._handlePressButtonAsync(dish.link)}
                             onPress={() => this.markFavorite(dishId)}
                 />
-                {/*<RenderComments comments={this.props.comments.comments.filter((comment) => comment.dishId === dishId)} />*/}
                 <Modal animationType = {"slide"} transparent = {false}
                        visible = {this.state.showModal}
                        onDismiss = {() => this.toggleModal() }

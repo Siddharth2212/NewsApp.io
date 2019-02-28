@@ -3,35 +3,6 @@ import { baseUrl } from '../shared/baseUrl';
 import {AsyncStorage, Platform} from "react-native";
 import {Google} from "expo";
 
-export const fetchComments = (dishId) => (dispatch) => {
-    return fetch(baseUrl + 'comments?newsid='+dishId)
-        .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                var errmess = new Error(error.message);
-                throw errmess;
-            })
-        .then(response => response.json())
-        .then(comments => dispatch(addComments(comments)))
-        .catch(error => dispatch(commentsFailed(error.message)));
-};
-
-export const commentsFailed = (errmess) => ({
-    type: ActionTypes.COMMENTS_FAILED,
-    payload: errmess
-});
-
-export const addComments = (comments) => ({
-    type: ActionTypes.ADD_COMMENTS,
-    payload: comments
-});
 
 export const fetchDishes = (category=-1, page=1, searchString=null) => (dispatch) => {
     let url = baseUrl + 'mobilefeed2/data?page='+page;
@@ -331,43 +302,4 @@ _storeData = async (key, token) => {
 export const addUserinfo = (userinfo) => ({
     type: ActionTypes.ADD_USERINFO,
     payload: userinfo
-});
-
-export const postComment = (dishId, rating, email, comment)  => (dispatch) => {
-    let commentPayload = {
-        dishId: dishId,
-        rating: rating,
-        comment: comment,
-        author: email,
-        date: (new Date).toISOString()};
-    dispatch(commentsLoading());
-
-    return fetch(baseUrl + 'addcomment?newsid='+dishId+'&comment='+JSON.stringify(commentPayload))
-        .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                var errmess = new Error(error.message);
-                throw errmess;
-            })
-        .then(response => {
-            return response.json()
-        })
-        .then(leaders => dispatch())
-        .catch(error => dispatch(commentsFailed(error.message)));
-};
-
-export const commentsLoading = () => ({
-    type: ActionTypes.COMMENTS_LOADING
-});
-
-export const addComment = (commentPayload) => ({
-    type: ActionTypes.ADD_COMMENT,
-    payload: commentPayload
 });
