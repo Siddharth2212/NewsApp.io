@@ -12,7 +12,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashimage.png",
       "resizeMode": "contain",
       "backgroundColor": "#2196f3"
     },
@@ -28,7 +28,9 @@
       "bundleIdentifier": "com.newsappio.newsappio"
     },
     "android": {
-      "package": "com.newsappio.newsappio"
-    }
+      "package": "com.newsappio.newsappio",
+      "versionCode": 3
+    },
+    "scheme": "newsappio"
   }
 }

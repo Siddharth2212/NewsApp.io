@@ -8,24 +8,10 @@ const { persistor, store } = ConfigureStore();
 
 import React, { Component } from 'react';
 
-import {Notifications, Permissions, Constants, Asset, AppLoading, Font} from 'expo';
+import {Notifications, Permissions, Constants} from 'expo';
 
-import { View, Text, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-function cacheImages(images) {
-    return images.map(image => {
-        if (typeof image === 'string') {
-            return Image.prefetch(image);
-        } else {
-            return Asset.fromModule(image).downloadAsync();
-        }
-    });
-}
-
-function cacheFonts(fonts) {
-    return fonts.map(font => Font.loadAsync(font));
-}
 
 const PUSH_REGISTRATION_ENDPOINT = 'https://tranquil-cliffs-80326.herokuapp.com/token';
 
@@ -87,27 +73,7 @@ export default class App extends Component {
         }
     };
 
-    async _loadAssetsAsync() {
-        const imageAssets = cacheImages([
-            'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
-        ]);
-
-        const fontAssets = cacheFonts([FontAwesome.font]);
-
-        await Promise.all([...imageAssets, ...fontAssets]);
-    }
-
     render() {
-        if (!this.state.isReady) {
-            return (
-                <AppLoading
-                    startAsync={this._loadAssetsAsync}
-                    onFinish={() => this.setState({ isReady: true })}
-                    onError={console.warn}
-                />
-            );
-        }
-
         return (
             <Provider store={store}>
                 <PersistGate

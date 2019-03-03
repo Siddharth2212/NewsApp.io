@@ -2,36 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dbc008b-947a-40b3-8053-da6ed4801256" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/splashimage.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/App2.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
       <change beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change beforePath="$PROJECT_DIR$/components/AboutComponent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/ContactComponent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/DishdetailComponent.js" afterPath="$PROJECT_DIR$/components/DishdetailComponent.js" />
-      <change beforePath="$PROJECT_DIR$/components/FavoriteComponent.js" afterPath="$PROJECT_DIR$/components/FavoriteComponent.js" />
-      <change beforePath="$PROJECT_DIR$/components/HomeComponent.js" afterPath="$PROJECT_DIR$/components/HomeComponent.js" />
-      <change beforePath="$PROJECT_DIR$/components/LeftbarComponent.js" afterPath="$PROJECT_DIR$/components/LeftbarComponent.js" />
-      <change beforePath="$PROJECT_DIR$/components/LoginComponent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/MainComponent.js" afterPath="$PROJECT_DIR$/components/MainComponent.js" />
-      <change beforePath="$PROJECT_DIR$/components/NewsComponent.js" afterPath="$PROJECT_DIR$/components/NewsComponent.js" />
-      <change beforePath="$PROJECT_DIR$/components/SearchComponent.js" afterPath="$PROJECT_DIR$/components/SearchComponent.js" />
-      <change beforePath="$PROJECT_DIR$/components/TabComponent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/TabsComponent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/WebviewComponent.js" afterPath="$PROJECT_DIR$/components/WebviewComponent.js" />
-      <change beforePath="$PROJECT_DIR$/components/assets/1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/assets/2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/assets/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/assets/4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/assets/5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/assets/icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/assets/splash.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/images/amitabh.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/images/logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/assets/splash.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/redux/ActionCreators.js" afterPath="$PROJECT_DIR$/redux/ActionCreators.js" />
-      <change beforePath="$PROJECT_DIR$/redux/comments.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/redux/configureStore.js" afterPath="$PROJECT_DIR$/redux/configureStore.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,7 +25,7 @@
       <file leaf-file-name="LeftbarComponent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="0">
               <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
@@ -67,58 +44,69 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.json">
+      <file leaf-file-name="DataCall.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/DataCall.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="14" lean-forward="false" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/MainComponent.js">
+      <file leaf-file-name="app.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DishdetailComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/DishdetailComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
+      <file leaf-file-name="splashimage.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/splashimage.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="icon.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/icon.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            <state relative-caret-position="-542">
+              <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
-                <element signature="e#315#356#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewsComponent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="296" column="31" lean-forward="false" selection-start-line="296" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
+              <folding>
+                <element signature="e#215#260#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="38" lean-forward="false" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+            <state relative-caret-position="270">
+              <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -127,34 +115,11 @@
       <file leaf-file-name="ActionCreators.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/redux/ActionCreators.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2865">
-              <caret line="191" column="97" lean-forward="false" selection-start-line="191" selection-start-column="97" selection-end-line="191" selection-end-column="97" />
+            <state relative-caret-position="297">
+              <caret line="194" column="18" lean-forward="false" selection-start-line="194" selection-start-column="18" selection-end-line="194" selection-end-column="18" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebviewComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/WebviewComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1305">
-              <caret line="87" column="142" lean-forward="false" selection-start-line="87" selection-start-column="136" selection-end-line="87" selection-end-column="142" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#213#258#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="configureStore.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/redux/configureStore.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -163,10 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delete</find>
-      <find>Login</find>
-      <find>splash</find>
-      <find>markFav</find>
       <find>Favorites</find>
       <find>Loading</find>
       <find>swipe</find>
@@ -193,6 +154,10 @@
       <find>HTML</find>
       <find>fetch</find>
       <find>comment</find>
+      <find>comments</find>
+      <find>Compone</find>
+      <find>paging</find>
+      <find>schema</find>
     </findStrings>
     <replaceStrings>
       <replace>Tabs</replace>
@@ -203,6 +168,9 @@
       <replace>http://192.168.1.3:3000/</replace>
       <replace>https://tranquil-cliffs-80326.herokuapp.com/</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/assets</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -248,11 +216,11 @@
         <option value="$PROJECT_DIR$/components/LeftbarComponent.js" />
         <option value="$PROJECT_DIR$/components/FavoriteComponent.js" />
         <option value="$PROJECT_DIR$/components/HomeComponent.js" />
-        <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/redux/ActionCreators.js" />
         <option value="$PROJECT_DIR$/components/DishdetailComponent.js" />
         <option value="$PROJECT_DIR$/redux/configureStore.js" />
         <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/app.json" />
       </list>
     </option>
   </component>
@@ -316,6 +284,11 @@
               <item name="NewsApp.io" type="462c0819:PsiDirectoryNode" />
               <item name="redux" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="NewsApp.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewsApp.io" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -372,12 +345,12 @@
       <workItem from="1550802549901" duration="9883000" />
       <workItem from="1550914543225" duration="8000" />
       <workItem from="1551084107760" duration="19139000" />
-      <workItem from="1551338994237" duration="327000" />
+      <workItem from="1551338994237" duration="5277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145318000" />
+    <option name="totallyTimeSpent" value="150268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -387,6 +360,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -399,7 +373,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -420,7 +393,6 @@
           <caret line="27" column="108" lean-forward="false" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="108" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#315#356#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -518,30 +490,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/DataCall.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/NewsComponent2.js" />
     <entry file="file://$PROJECT_DIR$/components/AboutComponent.js" />
     <entry file="file://$PROJECT_DIR$/components/assets/splash.png" />
     <entry file="file://$PROJECT_DIR$/components/images/logo.png" />
-    <entry file="file://$PROJECT_DIR$/assets/splash.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/splash2.png" />
     <entry file="file://$PROJECT_DIR$/App2.js" />
     <entry file="file://$PROJECT_DIR$/components/images/amitabh.jpeg" />
-    <entry file="file://$PROJECT_DIR$/assets/icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/assets/icon.png" />
     <entry file="file://$PROJECT_DIR$/components/assets/4.png" />
     <entry file="file://$PROJECT_DIR$/components/TabComponent.js" />
@@ -549,6 +504,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -563,6 +521,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-224">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -570,33 +531,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="71" lean-forward="false" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+            <element signature="e#1163#2160#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/LoginComponent.js" />
-    <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/WebviewComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1305">
           <caret line="87" column="142" lean-forward="false" selection-start-line="87" selection-start-column="136" selection-end-line="87" selection-end-column="142" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#213#258#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
+            <element signature="e#213#258#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="14" lean-forward="false" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -605,7 +555,7 @@
         <state relative-caret-position="870">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -615,17 +565,7 @@
         <state relative-caret-position="240">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/redux/ActionCreators.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2865">
-          <caret line="191" column="97" lean-forward="false" selection-start-line="191" selection-start-column="97" selection-end-line="191" selection-end-column="97" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -638,20 +578,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#315#356#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/LeftbarComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="0">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
@@ -667,10 +596,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/DataCall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redux/ActionCreators.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="194" column="18" lean-forward="false" selection-start-line="194" selection-start-column="18" selection-end-line="194" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="38" lean-forward="false" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        <state relative-caret-position="270">
+          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/NewsComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="296" column="31" lean-forward="false" selection-start-line="296" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
+          <folding>
+            <element signature="e#215#260#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/splashimage.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-542">
+          <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
           <folding />
         </state>
       </provider>
